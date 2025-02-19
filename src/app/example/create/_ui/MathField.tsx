@@ -31,7 +31,7 @@ export default function MathField({formulas, onInput, onSelect} : MathFieldProps
     return (        
         <div className="w-full">
             {//@ts-ignore
-            }<math-field className="w-full h-full border-solid border-2" onInput={handleInput}>{inputedLatex}</math-field>
+            }<math-field className="w-full h-full border-solid border-2 rounded-md" onInput={handleInput}>{inputedLatex}</math-field>
             <ul className="cursor-pointer">
                 {formulas.map(({id, latex}) => 
                     <li key={id} className="relative p-2 border-solid border-2 z-20 bg-white" onClick={() => handleSelect(latex)}>

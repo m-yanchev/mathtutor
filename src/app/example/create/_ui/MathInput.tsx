@@ -5,10 +5,10 @@ const MathField = dynamic(() => import("@/app/example/create/_ui/MathField"), { 
 
 type MathInputProps = {
     onAdd: (latex: string) => void
-    submitDisabled: boolean
+    submitDisabled?: boolean
 }
 
-export default function MathInput({onAdd, submitDisabled} : MathInputProps) {
+export default function MathInput({onAdd, submitDisabled = false} : MathInputProps) {
 
     const [inputedLatex, setInputedLatex] = useState<string>("")
     const [addButtonDisabled, setAddButtonDisabled] = useState<boolean>(true)
@@ -50,9 +50,9 @@ export default function MathInput({onAdd, submitDisabled} : MathInputProps) {
     }
 
     return (
-        <div className={`flex justify-end gap-4 mt-5 h-12`}>
+        <div className={`flex justify-end gap-4 m-1 h-12`}>
             <MathField formulas={formulas} onInput={handleInput} onSelect={handleSelect}/>                
-            <button className={"w-60 p-2 border-solid border-2"} 
+            <button className={"w-60 p-2 border-solid border-2 rounded-md"} 
                     onClick={handleAdd} 
                     disabled={addButtonDisabled || submitDisabled} 
                     type="button">
