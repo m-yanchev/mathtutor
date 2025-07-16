@@ -7,12 +7,88 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Examples {
-  id          Int @id @default(autoincrement())
-  description String 
+model Formula {
+  id    Int    @id @default(autoincrement())
+  latex String @unique
+
+  @@map("formulas")
 }
 
-model Formulas {
-  id          Int @id @default(autoincrement())
-  latex       String
+model TestExample {
+  id        Int             @id @default(autoincrement())
+  exampleId Int
+  testId    Int
+  number    Int
+  results   ExampleResult[]
+  example   Example         @relation(fields: [exampleId], references: [id])
+  test      Test            @relation(fields: [testId], references: [id])
+
+  @@unique([exampleId, testId])
+  @@unique([testId, number])
+  @@map("testExamples")
+}
+
+model Test {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique
+  testExamples TestExample[]
+  results      TestResult[]
+
+  @@map("tests")
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  role        Role         @default(USER)
+  testResults TestResult[]
+
+  @@map("users")
+}
+
+model TestResult {
+  id             Int             @id @default(autoincrement())
+  userId         Int
+  testId         Int
+  date           DateTime        @default(now())
+  exampleResults ExampleResult[]
+  test           Test            @relation(fields: [testId], references: [id])
+  user           User            @relation(fields: [userId], references: [id])
+
+  @@unique([userId, testId, date])
+  @@map("testResults")
+}
+
+model ExampleResult {
+  id            Int         @id @default(autoincrement())
+  testResultId  Int
+  testExampleId Int
+  answer        String?
+  testExample   TestExample @relation(fields: [testExampleId], references: [id])
+  testResult    TestResult  @relation(fields: [testResultId], references: [id])
+
+  @@unique([testResultId, testExampleId])
+  @@map("exampleResults")
+}
+
+model Example {
+  id            Int           @id @default(autoincrement())
+  description   String        @unique
+  answer        String?
+  testRelations TestExample[]
+  tags          Tag[]        @relation("ExampleToTag")
+
+  @@map("examples")
+}
+
+model Tag {
+  id       Int        @id @default(autoincrement())
+  title    String     @unique
+  examples Example[] @relation("ExampleToTag")
+
+  @@map("tags")
+}
+
+enum Role {
+  USER
+  ADMIN
 }

@@ -1,0 +1,21 @@
+export interface TagsPOSTRequest {
+    tagBegin: string
+}
+
+export interface TagsPUTRequest {
+    title: string
+}
+
+export interface TagsPOSTResponse {
+    tags: TagRecord[]
+}
+
+export interface TagsPUTResponse {
+    id: string
+}
+
+export interface TagRecord {
+    id: number
+    title: string
+}
+

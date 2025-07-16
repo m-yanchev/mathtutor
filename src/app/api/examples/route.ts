@@ -1,8 +1,6 @@
-import { PrismaClient } from "@prisma/client"
+import { prisma } from "@/app/_lib/prisma";
 
-const prisma = new PrismaClient
-
-export async function POST(req: Request) {
-    const { description } = await req.json()
-    await prisma.examples.create({data: {description: String(description)}})
+export async function POST() {
+    const examples = await prisma.example.findMany({ include: { tags: true } });
+    return Response.json({ examples });    
 }

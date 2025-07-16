@@ -1,12 +1,23 @@
-import { createExample } from "@/app/lib/actions";
-import DescriptionInput from "./_ui/DescriptionInput";
+import ModelFormLayout from "@/app/_components/ModelFormLayout"
+import { createExample, redirectToExamples } from "@/app/_lib/actions"
+import DescriptionInput from "@/app/example/_components/DescriptionInput"
+import ExampleAnswerInput from "@/app/example/_components/ExampleAnswerInput"
+import TagsInput from "@/app/example/_components/TagsInput"
+import { checkAdminAccess } from "@/app/_lib/dal"
+import { redirect } from "next/navigation"
 
-export default function Page() {
+export default async function Page() {
+
+    const adminAccess = await checkAdminAccess()
+    if (!adminAccess) {
+        redirect('/examples')
+    }
 
     return (
-        <form className="flex flex-col items-center p-10" action={createExample}>
-            <DescriptionInput/>
-            <button className="mt-10 p-2 border-solid border-2 bg-white" type="submit">Зберегти завдання</button>
-        </form>
+        <ModelFormLayout title="Створення завдання" formAction={createExample} cancelAction={redirectToExamples}>
+            <DescriptionInput />
+            <ExampleAnswerInput />
+            <TagsInput />
+        </ModelFormLayout>
     )
-}
+} 

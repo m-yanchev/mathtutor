@@ -1,22 +1,19 @@
-import Link from "next/link";
-import { getExamples } from "../lib/actions";
-import MathP from "../ui/MathP";
+import MainBox from "@/app/_components/MainBox";
+import { getExamples } from "@/app/_lib/actions";
+import Example from "@/app/examples/_components/Example";
+import { getUserRole } from "@/app/_lib/dal";
 
 export default async function Page() {
-  const examples = await getExamples()
 
-  return (<>
-    <div className="m-5 flex gap-10">
-      <div className="flex flex-col">
-        <Link className="p-3 mb-2" href="/example/create">Додати</Link>
-      </div>
-      <div className="flex flex-col">
+  const exampleListPromise = getExamples()
+  const userRolePromise = getUserRole()
+  const [examples, userRole] = await Promise.all([exampleListPromise, userRolePromise]);
+
+  return (
+    <MainBox model="example" access={userRole}>
         {examples.map(example => 
-          <MathP className="p-3 mb-5" key={example.id}>
-            {example.description}
-          </MathP>
+          <Example key={example.id} content={example} access={userRole}/>
         )}
-      </div>
-    </div>
-  </>)
+    </MainBox>
+  )
 }

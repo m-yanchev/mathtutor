@@ -1,9 +1,10 @@
 import Link from "next/link";
 
-export default function() {
+export default function Page() {
   return (
-    <div className="w-full h-screen flex justify-center items-center">
-      <Link href="/examples">Завдання</Link>
+    <div className="mt-10 flex flex-col items-center gap-5">
+      <Link href="/examples" className="">Завдання</Link>
+      <Link href="/tests" className="">Тести</Link>
     </div>
   )
 }
