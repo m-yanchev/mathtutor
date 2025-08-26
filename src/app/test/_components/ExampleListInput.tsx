@@ -1,10 +1,10 @@
 'use client';
 
-import ExampleDesc from "@/app/_components/ExampleDesc";
-import ExampleTagList from "@/app/_components/ExampleTagList";
-import { Example } from "@/app/_lib/Example";
+import ExampleDesc from "@/essences/example/description/components/ExampleDesc";
+import ExampleTagList from "@/essences/tags/components/TagSet";
 import { postData } from "@/app/_lib/fetchData";
 import { useEffect, useState } from "react";
+import type { Example } from "@/essences/example/interfaces";
 
 interface ExamplePOSTResponse {
     examples: Example[]
@@ -76,7 +76,7 @@ function Search({onChoose}: SearchProps) {
                         </SearchButton>
                         <button
                             type="button"
-                            className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600"
+                            className="px-3 py-1 bg-green-500 text-white rounded-sm hover:bg-green-600"
                             onClick={handleAddClick}>
                             Додати
                         </button>
@@ -105,7 +105,7 @@ function List({examples, onDelete}: ListProps) {
                         </div>
                         <button 
                             onClick={() => onDelete(index)}
-                            className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                            className="px-3 py-1 bg-red-500 text-white rounded-sm hover:bg-red-600"
                             type="button">
                             Видалити
                         </button>
@@ -123,7 +123,7 @@ function SearchButton({ onClick, children}: SearchButtonProps) {
         <button 
             onClick={onClick}
             type="button"
-            className="px-3 py-1 bg-gray-300 rounded hover:bg-gray-400">
+            className="px-3 py-1 bg-gray-300 rounded-sm hover:bg-gray-400">
             {children}
         </button>
     )

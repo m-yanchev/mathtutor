@@ -1,0 +1,11 @@
+type Props = Readonly<{
+    children: React.ReactNode;
+}>;
+
+export default function PInExample( {children}: Props ) {
+    return (
+        <p className="font-normal text-[18px] leading-[24px] text-body-dark">
+            {children}
+        </p>
+    )
+}

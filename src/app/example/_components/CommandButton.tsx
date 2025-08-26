@@ -1,6 +1,7 @@
 'use client'
 
-import { useEditor } from "./EditorProvider"
+import type { CommandName } from "../../../essences/example/description/components/EditorCommandBars"
+import { useDescEditorContext } from "../../../essences/example/description/components/EditorProvider"
 
 type Props = Readonly<CommandButtonAttributes>
 
@@ -9,14 +10,12 @@ export interface CommandButtonAttributes {
     commandName: CommandName,
     commandOptions?: InsertedTableOptions
 }
-type CommandName = "insertTable" | "deleteTable" | "addColumnBefore" | "addColumnAfter" | "addRowBefore" | "addRowBefore" | 
-                    "addRowAfter" | "deleteColumn" | "deleteRow" | "insertAnswerOptions" | "changeAnswerOptionsInlineStatus" |
-                    "insertAnswerRelations" | "setCellAlignLeft" | "setCellAlignCenter" | "insertParagraph"
+
 type InsertedTableOptions = {withHeaderRow: boolean}
 
 export default function CommandButton({title, commandName, commandOptions} : Props) {
     
-    const editor = useEditor()
+    const editor = useDescEditorContext()
     
     const handleClick = () => {
         editor?.commands[commandName](commandOptions)

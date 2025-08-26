@@ -29,7 +29,7 @@ export async function decrypt(session: string | undefined = '') {
 }
 
 export async function createSession(userId: number) {
-    const expiresAt = new Date(Date.now() + 5 * 365 * 24 * 60 * 60 * 1000)
+    const expiresAt = new Date( Date.now() + 5 * 365 * 24 * 60 * 60 * 1000 )
     const session = await encrypt({ userId, expiresAt })
     const cookieStore = await cookies()
  
@@ -48,7 +48,8 @@ export async function deleteSession() {
 }
 
 export async function getUserId(): Promise<number> {
-  const cookie = (await cookies()).get('session')?.value
-  const session = await decrypt(cookie)
-  return session?.userId ?? 0
+    const cookie = (await cookies()).get('session')?.value
+    if ( !cookie ) return 0
+    const session = await decrypt(cookie)
+    return session?.userId ?? 0
 }

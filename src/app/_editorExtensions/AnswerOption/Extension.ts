@@ -5,7 +5,7 @@ import Component from './Component';
 const AnswerOption = Node.create({
     name: "answerOption",
     group: "block",
-    content: "paragraph",
+    content: "(paragraph|image)+",
 
     parseHTML() {
         return [{ tag: 'answer-option' }]

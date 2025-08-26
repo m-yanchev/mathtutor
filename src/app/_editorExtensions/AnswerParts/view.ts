@@ -1,6 +1,4 @@
-import { ViewParsingProps } from "../DescriptionParsing"
-
-export default function parse({html} : ViewParsingProps): string {
+export default function parse( {html}: { html: string } ): string {
 
     const regex = /<answer-parts>(.*?)<\/answer-parts>/g
 

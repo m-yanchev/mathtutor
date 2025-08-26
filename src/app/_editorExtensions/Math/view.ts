@@ -1,7 +1,6 @@
 import latexToHTML from "@/app/_lib/latex"
-import { ViewParsingProps } from "../DescriptionParsing"
 
-export default function parse({html}: ViewParsingProps): string {
+export default function parse( {html}: { html: string } ): string {
 
     return html
         .replace(/<math>(.*?)<\/math>/g, (_, formula) => latexToHTML(

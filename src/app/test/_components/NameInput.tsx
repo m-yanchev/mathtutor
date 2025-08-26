@@ -19,7 +19,7 @@ export default function NameInput({ value }: Props) {
                 type="text"
                 id="name"
                 name="name"
-                className="block w-full p-4 rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
+                className="block w-full p-4 rounded-md border-gray-300 shadow-xs focus:border-blue-500 focus:ring-blue-500 sm:text-sm"
                 placeholder="Введіть назву..."
                 value={name}
                 onChange={handleInput}

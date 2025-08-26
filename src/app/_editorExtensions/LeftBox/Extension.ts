@@ -1,10 +1,10 @@
 import { Node } from '@tiptap/react';
 import { ReactNodeViewRenderer } from '@tiptap/react';
 import Component from './Component';
-import { NodeSelection } from '@tiptap/pm/state';
 
 const LeftBox = Node.create({
     name: "leftBox",
+    topNode: true,
     content: "(paragraph|table)+ (answerOptions|answerRelations)?",
 
     parseHTML() {
@@ -17,16 +17,6 @@ const LeftBox = Node.create({
 
     addNodeView() {
         return ReactNodeViewRenderer(Component)
-    },
-
-    addCommands() {
-        return {
-            selectLeftBox: () => ({ tr }) => {
-                const sel = NodeSelection.create(tr.doc, 0)
-                tr.setSelection(sel);
-                return true;
-            }
-        }
     },
 })
 

@@ -1,5 +1,5 @@
 import { NodeViewProps, NodeViewWrapper } from '@tiptap/react'
-import MathItem from "@/app/_components/MathItem";
+import MathItem from "@/essences/example/description/components/MathItem";
 
 export default function Component(props: NodeViewProps) {
 

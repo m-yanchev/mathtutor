@@ -1,3 +1,5 @@
+import { ImageAttributes } from "@/essences/example/description/images/editorExtension/Extension";
+import { IImageEditorNodeAttributes } from "@/essences/example/description/images/ImageAttributes";
 import { MathfieldElement } from "mathlive";
 
 declare global {
@@ -10,15 +12,11 @@ declare global {
 
 declare module '@tiptap/core' {
     interface Commands<ReturnType> {
-        leftBoxExtension: {
-            selectLeftBox: () => ReturnType,
-        },
         mathExtension: {
             insertMath: (props : {formula: string}) => ReturnType
         },
         imageExtension: {
-            insertImage: (props : {src: string, alt: string, width: number, height: number, lastmodified: string}) => ReturnType,
-            setSource: (props : {src: string}) => ReturnType
+            insertImage: ( props: IImageEditorNodeAttributes ) => ReturnType,
         },
         answerOptionsExtension: {
             insertAnswerOptions: () => ReturnType,
@@ -36,7 +34,10 @@ declare module '@tiptap/core' {
             setCellAlignCenter: () => ReturnType
         },
         paragraphExtension: {
-            insertParagraph: () => ReturnType
+            insertParagraph: () => ReturnType,
+        },
+        boldExtension: {
+            markBold: () => ReturnType
         }
     }
 }

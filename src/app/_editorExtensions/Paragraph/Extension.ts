@@ -20,7 +20,7 @@ export default Paragraph.extend({
                 if (!found) {
                     const $nodePos = editor.$node("leftBox");
                     if (!$nodePos) return false;
-                    pos = $nodePos.from - 1;
+                    pos = $nodePos.to - 2;
                 };
 
                 return chain()

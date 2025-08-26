@@ -1,10 +1,8 @@
-import Link from "next/link";
+import TestsPage from "@/essences/testsPage/components/TestsPage";
 
-export default function Page() {
-  return (
-    <div className="mt-10 flex flex-col items-center gap-5">
-      <Link href="/examples" className="">Завдання</Link>
-      <Link href="/tests" className="">Тести</Link>
-    </div>
-  )
+export default async function Page() {
+
+    return (
+        <TestsPage />
+    )
 }

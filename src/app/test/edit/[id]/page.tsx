@@ -1,9 +1,9 @@
 import { notFound, redirect } from "next/navigation"
-import { getTest, redirectToTests, updateTest } from "@/app/_lib/actions"
-import ModelFormLayout from "@/app/_components/ModelFormLayout"
+import ModelFormLayout from "@/app/test/_components/ModelFormLayout"
 import NameInput from "@/app/test/_components/NameInput"
 import ExampleListInput from "@/app/test/_components/ExampleListInput"
 import { checkAdminAccess } from "@/app/_lib/dal"
+import { getTest, redirectToTests, updateTest } from "@/essences/test/actions"
 
 type Props = Readonly<{
     params: Promise<{ id: string }>

@@ -83,7 +83,7 @@ model Example {
 model Tag {
   id       Int        @id @default(autoincrement())
   title    String     @unique
-  examples Example[] @relation("ExampleToTag")
+  examples Example[]  @relation("ExampleToTag")
 
   @@map("tags")
 }

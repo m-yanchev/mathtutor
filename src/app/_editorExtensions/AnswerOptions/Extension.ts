@@ -60,7 +60,6 @@ const AnswerOptions = Node.create({
                     if (!found && node.type.name === 'answerOptions') {
                         pos = nodePos
                         found = true
-                        return
                     }
                 });
 

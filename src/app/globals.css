@@ -1,6 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@theme {
+  --color-violet: #181046;
+  --color-orange: #e55e16;
+  --color-blue: #f4f9fe;
+  --color-gray-light: #fdfdfd;
+  --color-gray: #717680;
+  --color-stroke: #e9eaeb;
+  --color-body-light: #535862;
+  --color-body-dark: #252b37;
+  --color-black: #181d27;
+  --shadow-drop: 0 1px 4px 0 rgba(0, 0, 0, 0.01), 0 1px 4px 0 rgba(12, 12, 13, 0.05);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   --background: #ffffff;
@@ -10,7 +44,6 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
 .ProseMirror:focus {
