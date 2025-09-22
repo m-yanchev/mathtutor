@@ -1,0 +1,1 @@
+export const BEGINING_GET_PARAM = "latex"

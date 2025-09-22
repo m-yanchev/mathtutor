@@ -1,0 +1,1 @@
+export type OptionType = "mistake" | "correct" | "none"

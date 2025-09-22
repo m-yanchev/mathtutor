@@ -1,4 +1,4 @@
-import TestsPage from "@/essences/testsPage/components/TestsPage";
+import TestsPage from "@/views/test/components/CardsPage";
 
 export default async function Page() {
 

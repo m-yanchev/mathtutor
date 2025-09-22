@@ -1,1 +1,0 @@
-export type ResultType = "completelyWrong" | "partiallyCorrect" | "completelyCorrect" | "undefined"

@@ -1,4 +1,4 @@
-import TestPage from "@/essences/testsPage/testPage/components/TestPage";
+import TestPage from "@/views/test/components/TestPage";
 
 type Props = Readonly<{
     params: Promise<{ id: string }>

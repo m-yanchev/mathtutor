@@ -1,5 +1,5 @@
-import { ImageAttributes } from "@/essences/example/description/images/editorExtension/Extension";
-import { IImageEditorNodeAttributes } from "@/essences/example/description/images/ImageAttributes";
+import { ImageAttributes } from "@/views/example/description/images/editorExtension/Extension";
+import { IImageEditorNodeAttributes } from "@/views/example/description/images/ImageAttributes";
 import { MathfieldElement } from "mathlive";
 
 declare global {

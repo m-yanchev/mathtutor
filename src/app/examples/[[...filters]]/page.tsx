@@ -1,5 +1,5 @@
-import { getTagIdListByString } from "@/essences/tags/tags";
-import ExamplesPage from "@/essences/examplesPage/components/ExamplesPage";
+import { getTagIdListByString } from "@/views/tag/helpers";
+import ExamplesPage from "@/views/example/components/ExamplesPage";
 
 type Props = Readonly<{
     params: Promise<{ filters: string[] | undefined}>

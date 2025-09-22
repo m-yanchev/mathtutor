@@ -1,15 +1,22 @@
-import { checkAdminAccess } from "@/app/_lib/dal"
-import { prisma } from "@/app/_lib/prisma"
+import { prisma } from "@/dataSources/prisma"
+import User from "@/essences/user/User"
+import { findFormulasInStorageByLatex } from "@/views/example/description/math/actions"
+import { BEGINING_GET_PARAM } from "@/views/example/description/math/constants"
+import { type NextRequest, NextResponse } from "next/server"
 
-export async function POST(req: Request) {
-    const { latex } = await req.json()
-    const formulas = await prisma.formula.findMany({where: {latex: {startsWith: latex}}, select: {latex: true, id: true}})
-    return Response.json({formulas})
+export async function GET(request: NextRequest): Promise<NextResponse> {
+    const searchParams = request.nextUrl.searchParams
+    const query = searchParams.get(BEGINING_GET_PARAM)
+    if (!query) {
+        return NextResponse.json({ error: `Query parameter '${BEGINING_GET_PARAM}' is required` }, { status: 400 })
+    }
+    const result = await findFormulasInStorageByLatex(query)
+    return NextResponse.json(result)
 }
 
 export async function PUT(req: Request) {
     const { latex } = await req.json()
-    if (!(await checkAdminAccess())) {
+    if (!(await User.checkAdminAccess())) {
         return Response.json({error: "User don't have access"}, {status: 403})
     }
     const formula = await prisma.formula.findFirst({where: {latex}, select: {id: true}})

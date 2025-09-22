@@ -1,9 +1,6 @@
-import { notFound, redirect } from "next/navigation"
-import ModelFormLayout from "@/app/test/_components/ModelFormLayout"
-import NameInput from "@/app/test/_components/NameInput"
-import ExampleListInput from "@/app/test/_components/ExampleListInput"
-import { checkAdminAccess } from "@/app/_lib/dal"
-import { getTest, redirectToTests, updateTest } from "@/essences/test/actions"
+import { redirect } from "next/navigation"
+import User from "@/essences/user/User"
+import EditPage from "@/views/test/components/EditPage"
 
 type Props = Readonly<{
     params: Promise<{ id: string }>
@@ -11,24 +8,15 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
 
-    const adminAccess = await checkAdminAccess()
+    const adminAccess = await User.checkAdminAccess()
     if (!adminAccess) {
         redirect('/tests')
     }
 
     const { id } = await params
     const testId = parseInt(id)
-    const test = await getTest(testId)
-
-    if (!test) notFound()
-    const updateTestWithId = updateTest.bind(null, test.id)
-
-    const examples = test.testExamples.sort((a, b) => a.number - b.number).map(({ example }) => example)
 
     return (
-        <ModelFormLayout title="Редагування тесту" formAction={updateTestWithId} cancelAction={redirectToTests}>
-            <NameInput value={test.name} />
-            <ExampleListInput examples={examples} />
-        </ModelFormLayout>
+        <EditPage id={testId} />
     )
 }

@@ -1,7 +1,6 @@
-import { notFound, redirect } from "next/navigation"
-import { checkAdminAccess } from "@/app/_lib/dal"
-import ExampleUpdatingPage from "@/app/example/_components/ExampleUpatingPage"
-import { getExample, updateExample } from "@/essences/example/actions"
+import { redirect } from "next/navigation"
+import User from "@/essences/user/User"
+import EditPage from "@/views/example/components/EditPage"
 
 type Props = Readonly<{
     params: Promise<{ id: string }>
@@ -9,19 +8,15 @@ type Props = Readonly<{
 
 export default async function Page({ params }: Props) {
 
-    const adminAccess = await checkAdminAccess()
+    const adminAccess = await User.checkAdminAccess()
     if (!adminAccess) {
         redirect('/examples')
     }
     
     const { id } = await params
     const exampleId = parseInt(id)
-    const example = await getExample(exampleId)
-
-    if (!example) notFound()
-    const updateExampleWithId = updateExample.bind(null, example.id)
 
     return (
-        <ExampleUpdatingPage title="Редагування завдання" example={example} exampleMutation={updateExampleWithId} />
+        <EditPage id={exampleId} />
     )
 } 

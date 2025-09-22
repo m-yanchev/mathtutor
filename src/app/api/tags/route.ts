@@ -1,6 +1,6 @@
-import { checkAdminAccess } from "@/app/_lib/dal"
-import { BEGINING_GET_PARAM, findTagsInStorageByTitle, putTagInStorage } from "@/essences/tags/actions"
 import { NextRequest, NextResponse } from "next/server"
+import { BEGINING_GET_PARAM, findTagsInStorageByTitle, putTagInStorage } from "@/views/tag/actions"
+import User from "@/essences/user/User"
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
     const searchParams = request.nextUrl.searchParams
@@ -13,7 +13,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 }
 
 export async function PUT(req: Request): Promise<Response> {
-    if (!(await checkAdminAccess())) {
+    if (!(await User.checkAdminAccess())) {
         return Response.json({error: "User don't have access"}, {status: 403})
     }    
     const result = await putTagInStorage( await req.json() )

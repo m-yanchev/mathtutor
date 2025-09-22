@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
-import "./globals.css";
 import { GoogleTagManager } from "@next/third-parties/google";
+import TopPanel from "@/views/common/ui/TopPanel";
+import "./globals.css";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["cyrillic", "latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
       <body className="font-normal text-[18px] leading-[24px] text-body-dark">
         <div className="fixed h-full w-full bg-gray-light overflow-auto">
           <div className="w-full" >
-            <div className="h-[58px] w-full bg-violet" />
+            <TopPanel />
             {children}
           </div>
         </div>        

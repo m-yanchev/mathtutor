@@ -1,1 +1,0 @@
-export const TOP_LEVEL_LAYOUT_TITLE = "Підготовка до НМТ з математики"

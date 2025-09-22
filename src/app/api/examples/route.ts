@@ -1,4 +1,4 @@
-import { prisma } from "@/app/_lib/prisma";
+import { prisma } from "@/dataSources/prisma";
 
 export async function POST() {
     const examples = await prisma.example.findMany({ include: { tags: true } });

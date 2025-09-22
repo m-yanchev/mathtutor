@@ -1,4 +1,4 @@
-import ResultsPage from "@/essences/testsPage/testPage/resultsPage/components/ResultsPage"
+import ResultsPage from "@/views/test/result/components/Page"
 
 type Props = Readonly<{
     params: Promise<{ id: string }>

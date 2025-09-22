@@ -1,10 +1,10 @@
 import { redirect } from "next/navigation";
-import { prisma } from "@/app/_lib/prisma";
-import { deleteSession, getUserId } from "@/app/_lib/session";
+import { prisma } from "@/dataSources/prisma";
+import User from "@/essences/user/User";
 
 export async function GET() {
     
-    const sessionUserId = await getUserId()
+    const sessionUserId = await User.getUserIdFromSession()
 
     if (sessionUserId) {
 
@@ -30,7 +30,7 @@ export async function GET() {
                 }
             })
         } )
-        deleteSession()
+        User.logout()
     }
 
     redirect("/")

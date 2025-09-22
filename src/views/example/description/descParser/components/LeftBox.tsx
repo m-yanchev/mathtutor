@@ -1,0 +1,13 @@
+import ExampleDescLeftBox from "@/views/example/description/descParser/ui/ExampleDescLeftBox"
+
+type Props = Readonly<{
+    children: React.ReactNode
+}>
+
+export default function LeftBox({ children }: Props) {
+    return (
+        <ExampleDescLeftBox>
+            {children}
+        </ExampleDescLeftBox>
+    )
+}

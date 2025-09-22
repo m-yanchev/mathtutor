@@ -1,16 +1,15 @@
 import { redirect } from "next/navigation"
-import { checkAdminAccess } from "@/app/_lib/dal"
-import ExampleUpdatingPage from "@/app/example/_components/ExampleUpatingPage"
-import { createExample } from "@/essences/example/actions"
+import User from "@/essences/user/User"
+import CreatePage from "@/views/example/components/CreatePage"
 
 export default async function Page() {
 
-    const adminAccess = await checkAdminAccess()
+    const adminAccess = await User.checkAdminAccess()
     if (!adminAccess) {
         redirect('/examples')
     }
 
     return (
-        <ExampleUpdatingPage title="Створення завдання" exampleMutation={createExample} />
+        <CreatePage />
     )
 }

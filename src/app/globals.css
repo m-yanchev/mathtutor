@@ -9,12 +9,15 @@
   --color-violet: #181046;
   --color-orange: #e55e16;
   --color-blue: #f4f9fe;
+  --color-blue-dark: #356CE5;
   --color-gray-light: #fdfdfd;
   --color-gray: #717680;
   --color-stroke: #e9eaeb;
   --color-body-light: #535862;
   --color-body-dark: #252b37;
   --color-black: #181d27;
+  --color-success: #6C9E81;
+  --color-mistake: #D7423A;
   --shadow-drop: 0 1px 4px 0 rgba(0, 0, 0, 0.01), 0 1px 4px 0 rgba(12, 12, 13, 0.05);
 }
 
