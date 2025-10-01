@@ -19,6 +19,7 @@ model TestExample {
   exampleId Int
   testId    Int
   number    Int
+  cost      Int             @default(1)
   results   ExampleResult[]
   example   Example         @relation(fields: [exampleId], references: [id])
   test      Test            @relation(fields: [testId], references: [id])

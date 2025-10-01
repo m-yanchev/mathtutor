@@ -1,7 +1,7 @@
 import { prisma } from "@/dataSources/prisma"
 import type { ExampleData, ExampleInput } from "@/essences/example/interfaces"
 import type { TagData } from "@/essences/tag/interfaces";
-import type { Example as ExampleDSData, Tag as TagDSData } from "@prisma/client";
+import { ExampleDSItemForGet } from "./interfaces";
 
 export default class Example implements ExampleData {
 
@@ -10,7 +10,7 @@ export default class Example implements ExampleData {
     public readonly tags: TagData[];
     public readonly answer: string;
 
-    public constructor( { id, description, tags, answer }: ExampleDSData & { tags: TagDSData[] } ) {
+    public constructor( { id, description, tags, answer }: ExampleDSItemForGet ) {
         this.id = id
         this.description = description
         this.tags = tags

@@ -8,7 +8,7 @@ type Props = Readonly<{
 export default function Card( {test}: Props ) {
     return (
         <Link href={`/tests/${test.id}`} className="flex flex-col gap-[16px] lg:gap-[24px] w-full lg:w-[331px] cursor-pointer">
-            <span className="text-[16px] lg:text-[18px] leading-[18px] lg:leading-[24px] text-body-dark">{test.name}</span>
+            <h3 className="text-[16px] lg:text-[18px] leading-[18px] lg:leading-[24px] text-body-dark">{test.name}</h3>
             <hr className="border-[1px] border-[#efefef]"/>
             <div className="flex w-full justify-between" >
                 <span className="text-[16px] leading-[20px] text-orange">Відкрити тест</span>

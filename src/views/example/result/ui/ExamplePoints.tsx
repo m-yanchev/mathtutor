@@ -1,4 +1,4 @@
-import type { ExampleResultType } from "@/essences/exampleResult/interfaces";
+import type { ExampleResultType } from "@/essences/example/result/interfaces";
 
 type Props = Readonly<{
     number: number

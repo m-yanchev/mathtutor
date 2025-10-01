@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start -p 3000 -H 127.0.0.1",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@next/third-parties": "^15.4.1",
@@ -36,6 +37,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cypress": "^15.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.3",
     "postcss": "^8",

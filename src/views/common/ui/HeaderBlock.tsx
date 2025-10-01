@@ -8,7 +8,7 @@ type Props = Readonly<{
 
 export default function HeaderBlock( { title, children, className = "" }: Props ) {
     return (
-        <BoxXPadding className={`${className} z-5 fill-[#477AE7] sticky -top-[142px] lg:-top-[149px] overflow-hidden flex flex-col justify-end gap-[32px] h-[204px] lg:h-[211px] w-full bg-[#356ce5]`} >
+        <BoxXPadding className={`${className} z-5 fill-[#477AE7] sticky -top-[142px] lg:-top-[149px] overflow-hidden flex flex-col justify-between h-[204px] lg:h-[210px] w-full bg-[#356ce5]`} >
             {Array.from({ length: 20 }).map((_, i) => (
                 <VerticalLine key={i} left={ 54 + i * 151 } />
             ))}
@@ -18,9 +18,11 @@ export default function HeaderBlock( { title, children, className = "" }: Props 
             <Triangle />
             <Square />
             <Circle />
-            <h1 className="z-10 font-bold text-[32px] lg:text-[36px] leading-[40px] lg:leading-[48px] text-gray-light">
-                {title}
-            </h1>
+            <div className="flex items-center justify-start grow">
+                <h1 className="z-10 font-bold text-[32px] lg:text-[36px] leading-[40px] lg:leading-[48px] text-gray-light">
+                    {title}
+                </h1>
+            </div>
             {children}
         </BoxXPadding>
     )

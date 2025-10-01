@@ -1,6 +1,6 @@
-import { prisma } from "@/dataSources/prisma";
+import DataSource from "@/essences/example/DataSource";
 
-export async function POST() {
-    const examples = await prisma.example.findMany({ include: { tags: true } });
-    return Response.json({ examples });    
+export async function GET() {
+    const examples = await DataSource.loadDataList();
+    return Response.json({ examples });
 }

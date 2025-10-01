@@ -1,10 +1,10 @@
 import { Fragment } from "react/jsx-runtime";
 import { findTagsInStorageById } from "@/views/tag/actions";
-import TopPageHeaderBlock from "@/views/common/components/TopPageHeaderBlock";
+import TopPageHeaderBlock from "@/views/common/ui/HeaderBoxForPageNavigator";
 import TopPageNavigator from "@/views/common/components/TopPageNavigator";
 import Example from "@/dataSources/example/Example";
 import User from "@/essences/user/User";
-import ExampleListBox from "../ui/ExampleListBox";
+import { ListBox, ListItemBox } from "../ui/ListBox";
 import ExampleView from "./Example";
 import PageControlPanel from "./PageControlPanel";
 
@@ -25,10 +25,13 @@ export default async function ExamplesPage( {tagIdList}: Props ) {
         <TopPageNavigator pageName="examples" />
       </TopPageHeaderBlock>
       <PageControlPanel tags={tagSetResult.tags} userRole={userRole} />
-      <ExampleListBox>
+      <ListBox>
         { examples.map( example => 
-        <ExampleView key={example.id} content={example} access={userRole} /> ) }
-      </ExampleListBox>
+          <ListItemBox key={example.id}>
+            <ExampleView content={example} access={userRole} />
+          </ListItemBox>
+        ) }
+      </ListBox>
     </Fragment>
   )
 }

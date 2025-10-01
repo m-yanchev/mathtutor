@@ -1,5 +1,6 @@
-import { Answer, AnswerData } from "@/essences/answer/interfaces"
-import { Example, ExampleData } from "../example/interfaces"
+import { Answer, AnswerData, AnswerInput } from "@/essences/answer/interfaces"
+import { TestExampleData } from "@/essences/test/interfaces"
+import { Example } from "../interfaces"
 
 export interface ExampleResult {
     resultPoints: number
@@ -10,8 +11,13 @@ export interface ExampleResult {
 }
 
 export interface ExampleResultData {
-    example: ExampleData
+    testExample: TestExampleData
     result: AnswerData
+}
+
+export interface ExampleResultInput {
+    testExampleId: number
+    answer: AnswerInput
 }
 
 export enum ExampleResultType {

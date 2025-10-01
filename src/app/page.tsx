@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import TestsPage from "@/views/test/components/CardsPage";
+import { permanentRedirect, RedirectType } from 'next/navigation';
 
 export const metadata: Metadata = {
     alternates: {
@@ -9,7 +9,5 @@ export const metadata: Metadata = {
 
 export default async function Page() {
 
-    return (<>
-        <TestsPage />
-    </>)
+    permanentRedirect( "/tests", RedirectType.replace )
 }

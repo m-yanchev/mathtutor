@@ -10,7 +10,7 @@ export default function ExampleNumbers( { states }: Props ) {
         .set( ExampleNumbersState.CompletelyWrong, "bg-[#d7423a33] text-violet" )
         .set( ExampleNumbersState.PartiallyCorrect, "bg-[#f6c31933] text-violet" )
         .set( ExampleNumbersState.CompletelyCorrect, "bg-[#6c9e8133] text-violet" )
-        .set( ExampleNumbersState.Missed, "bg-stroke text-violet" )
+        .set( ExampleNumbersState.Missed, "bg-stroke text-violet border-stroke border-[1px]" )
         .set( ExampleNumbersState.Completed, "bg-#356CE51A text-blue-dark border-blue-dark border-[1px]" )
 
     return (

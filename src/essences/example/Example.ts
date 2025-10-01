@@ -38,4 +38,11 @@ export default class Example implements IExample {
     public static create( exampleData: ExampleData ) : Example {
         return new Example( exampleData )
     }
+
+    public static async getAllFromServer() : Promise<Example[]> {
+        const response = await fetch('/api/examples', { method: 'GET' })
+        if ( !response.ok ) throw new Error(`Failed to fetch examples, status: ${response.status}`)
+        const data = await response.json()
+        return data.examples.map( (item: ExampleData) => new Example( item ) )
+    }
 }

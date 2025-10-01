@@ -41,6 +41,7 @@ export interface BaseAnswer {
 }
 
 export type AnswerData = string
+export type AnswerInput = string
 export type AnswerType = "numerical" | "option" | "relation"
 
 export type ResultOptionMap = ResultOptionType[]

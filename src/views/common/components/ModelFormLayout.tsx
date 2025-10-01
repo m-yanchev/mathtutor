@@ -51,7 +51,7 @@ function ConfirmButton() {
 
 function FormButton({ className, type = "submit", children, onClick = () => {} }: FormButtonProps) {
     return (
-        <button className={`mt-10 px-4 py-2 text-white rounded-sm ${className}`} type={type} onClick={onClick} >
+        <button className={`mt-10 px-4 py-2 text-white rounded-sm cursor-pointer ${className}`} type={type} onClick={onClick} >
             {children}
         </button>
     )

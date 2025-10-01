@@ -6,20 +6,20 @@ export default class ExampleResult implements IExampleResult {
     
     public readonly result: Answer
     public readonly example: Example
+    private readonly cost: number
 
-    private static readonly CAPACITY = 1;
-
-    public constructor( { example, result }: ExampleResultData ) {
-        this.example = Example.create( example )
+    public constructor( { testExample, result }: ExampleResultData ) {
+        this.example = Example.create( testExample.example )
         this.result = Answer.createByData( result )
+        this.cost = testExample.cost
     }
 
     public get resultPoints(): number {
-        return this.example.answer.correctCount( this.result ) * ExampleResult.CAPACITY
+        return this.example.answer.correctCount( this.result ) * this.cost
     }
 
     public get totalPoints(): number {
-        return this.example.answer.totalCount * ExampleResult.CAPACITY
+        return this.example.answer.totalCount * this.cost
     }
 
     public get resultType(): ExampleResultType {

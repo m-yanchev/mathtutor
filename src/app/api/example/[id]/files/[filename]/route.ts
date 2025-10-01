@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
 import ImageFS from "@/views/example/description/images/ImageFS";
 
-export async function GET(req: Request, { params }: { params: Promise<{ id: string, filename: string }> }) {
+export async function GET( req: Request, { params }: { params: Promise<{ id: string, filename: string }> }) {
 
     const { id, filename } = await params
 

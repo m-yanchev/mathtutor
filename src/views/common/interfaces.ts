@@ -4,3 +4,7 @@ export interface Crumb {
     title: string
     href: string
 }
+export type PageNavigatorItem = {
+    pageName: PageName
+    title: string
+}

@@ -1,4 +1,4 @@
-import type { ExampleResult, ExampleResultData } from "@/essences/exampleResult/interfaces"
+import type { ExampleResult, ExampleResultData, ExampleResultInput } from "@/essences/example/result/interfaces"
 
 export interface TestResult {
     getLastByTestIdFromDS: ( id: number ) => Promise<void>
@@ -9,6 +9,13 @@ export interface TestResult {
 }
 
 export interface TestResultData {
-    test: { name: string }
+    test: { 
+        name: string 
+    }
     exampleResults: ExampleResultData[]
+}
+
+export interface TestResultInput {
+    testId: number
+    exampleResults: ExampleResultInput[]
 }

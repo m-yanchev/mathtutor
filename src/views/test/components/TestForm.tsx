@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import ExampleListBox from '@/views/example/ui/ExampleListBox'
-import ExampleBox from '@/views/example/ui/ExampleBox'
+import { ListBox, ListItemBox } from '@/views/example/ui/ListBox'
 import Number from '@/views/example/number/ui/Number'
 import ExampleDesc from '@/views/example/description/components/ExampleDesc'
 import AnswerInput from '@/views/answer/components/Input'
@@ -36,14 +35,14 @@ export default function TestForm( props: Props ) {
                 <ExampleNumbers missedList={missedList} />
                 <CheckButton />
             </ControlBox>
-            <ExampleListBox>
-            { test.relationTestExamples.map( ( {example, number }) => (
-                <ExampleBox key={example.id} >
-                    <Number value={ number + 1 } />
-                    <ExampleDesc id={example.id} description={example.description} />
-                    <AnswerInput type={ example.answer.type } onInput={ ( answer ) => handleAnswerInput({ answer, number }) } />
-                </ExampleBox>
+            <ListBox>
+            { test.relationTestExamples.map( ( {example}, index ) => (
+                <ListItemBox key={ example.id } >
+                        <Number value={ index + 1 } />
+                        <ExampleDesc id={example.id} description={example.description} />
+                        <AnswerInput type={ example.answer.type } onInput={ ( answer ) => handleAnswerInput({ answer, number: index }) } />
+                </ListItemBox>
             ) ) }
-            </ExampleListBox>
+            </ListBox>
     </>)
 }

@@ -1,6 +1,6 @@
-import { getTestResult } from "@/dataSources/testResult/ds";
-import ExampleResult from "@/essences/exampleResult/ExampleResult";
+import ExampleResult from "@/essences/example/result/ExampleResult";
 import User from "@/essences/user/User";
+import TestResultDS from "@/dataSources/test/result/TestResult";
 import type { TestResult as ITestResult, TestResultData } from "./interfaces";
 
 export default class TestResult implements ITestResult {
@@ -10,12 +10,12 @@ export default class TestResult implements ITestResult {
 
     public async getLastByTestIdFromDS( id: number ) : Promise<void> {
         const userId = await User.getUserIdFromSession()
-        const dsField: TestResultData = await getTestResult({ testId: id, userId })
+        const dsField: TestResultData = await TestResultDS.load({ testId: id, userId })
         if ( dsField === undefined ) {
             throw new Error(`Result for test with id ${id} not found`)
         }
         this.testName = dsField.test.name
-        this.exampleResults = dsField.exampleResults.map( ({ example, result }) => new ExampleResult({ example, result }) )
+        this.exampleResults = dsField.exampleResults.map( ({ testExample, result }) => new ExampleResult({ testExample, result }) )
     }
 
     public get totalPoints() : number {
@@ -25,5 +25,4 @@ export default class TestResult implements ITestResult {
     public get resultPoints() : number {
         return  this.exampleResults.reduce( ( result, exampleResult ) => result + exampleResult.resultPoints, 0 )
     }
-
 }

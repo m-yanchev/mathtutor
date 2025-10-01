@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import TopPageHeaderBlock from "@/views/common/components/TopPageHeaderBlock";
+import TopPageHeaderBlock from "@/views/common/ui/HeaderBoxForPageNavigator";
 import TopPageNavigator from "@/views/common/components/TopPageNavigator";
 import User from "@/essences/user/User";
 import CardsBox from "../ui/CardsBox";

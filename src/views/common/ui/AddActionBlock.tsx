@@ -1,6 +1,6 @@
 export default function AddActionBlock({ title = "" }: { title?: string }) {
     return (
-        <div className="flex items-center gap-[6px] rounded-[8px] py-[12px] px-[18px] bg-orange shadow-drop text-gray-light text-nowrap">
+        <div className="flex items-center gap-[6px] rounded-[8px] py-[12px] px-[18px] bg-orange shadow-drop text-gray-light text-nowrap cursor-pointer">
             <div className="size-[20px] flex justify-center items-center" >
                 <svg className="fill-gray-light" width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
                     <mask id="path-1-inside-1_490_1469" >

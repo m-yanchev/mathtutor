@@ -1,11 +1,11 @@
-import type { TestForList } from "@/essences/test/interfaces"
+import type { Test } from "@/essences/test/interfaces"
 import { UserRole } from "@/essences/user/interfaces"
 import TestCard from "../ui/Card"
 import TestBox from "../ui/CardBox"
 import { TestUpdatingBar } from "./TestUpdatingBar"
 
 type Props = Readonly<{
-    content: TestForList
+    content: Test
     access?: UserRole
 }>
 

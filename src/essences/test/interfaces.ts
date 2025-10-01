@@ -1,11 +1,10 @@
-import type { Example, ExampleData, ExampleFind, ExampleListFormDataField } from "@/essences/example/interfaces"
+import type { Example, ExampleData, ExampleFind } from "@/essences/example/interfaces"
 
 export interface Test {
     id: number
     name: string
     relationTestExamples: TestExample[]
     exampleDataList: ExampleData[]
-    JSON: string
 }
 
 export interface TestData {
@@ -17,31 +16,22 @@ export interface TestData {
 export interface TestExample {
     id: number
     example: Example
-    number: number
+    cost: number
 }
 
 export interface TestExampleData {
     id: number
     example: ExampleData
+    cost: number
     number: number
 }
 
 export interface TestInput {
     name: string
-    examples: ExampleFind[]
+    testExamples: TestExampleInput[]
 }
 
-export interface TestFormDataFields {
-    name: string
-    examples: ExampleListFormDataField
-}
-
-export interface TestForList {
-    id: number
-    name: string
-}
-
-export interface TestFields {
-    name: string,
-    exampleIDList: number[]
+export interface TestExampleInput {
+    example: ExampleFind
+    cost: number
 }

@@ -2,11 +2,11 @@ import { notFound } from "next/navigation"
 import { Fragment } from "react/jsx-runtime"
 import Header from "@/views/common/ui/HeaderBlockWithBreadCrumbs"
 import ControlBox from "@/views/test/ui/ControlBox"
-import ExampleNumbers from "./ExampleNumbers"
-import ExampleResults from "@/views/exampleResult/components/ExamplesWithResults"
-import TestResult from "@/essences/testResult/TestResult"
+import ExampleResults from "@/views/example/result/components/ExamplesWithResults"
+import TestResult from "@/essences/test/result/TestResult"
 import { TESTS_PAGE_TITLE } from "@/views/common/constants"
 import PointsForTest from "../ui/PointsForTest"
+import ExampleNumbers from "./ExampleNumbers"
 
 type Props = Readonly<{
     id: number

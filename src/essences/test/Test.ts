@@ -1,6 +1,6 @@
-import Example from "@/essences/example/Example"
 import type { ExampleData } from "@/essences/example/interfaces"
-import type { Test as ITest, TestData, TestExample } from "./interfaces"
+import type { Test as ITest, TestData } from "./interfaces"
+import { TestExample } from "./TestExample"
 
 export default class Test implements ITest {
     
@@ -11,43 +11,19 @@ export default class Test implements ITest {
     protected constructor( data: TestData ) {
         this.id = data.id
         this.name = data.name
-        this.relationTestExamples = data.testExamples.map( ({ example, id, number }) => ( {
-            id,
-            example: Example.create({ id: example.id, description: example.description, answer: example.answer, tags: example.tags }),
-            number
-        } ) )
-    }
-
-    public static getTestByJSON( test: string ) : Test {
-        return new Test( JSON.parse(test) as TestData )
+        this.relationTestExamples = TestExample.createByDataList( data.testExamples )
     }
 
     public get data() : TestData {
         return {
             id: this.id,
             name: this.name,
-            testExamples: this.relationTestExamples.map( ({ example, id, number }) => ( {
-                id,
-                number,
-                example: example.data
-            } ) )
+            testExamples: this.relationTestExamples.map( testExample => testExample.data )
         }
     }
 
     public get exampleDataList() : ExampleData[] {
         return this.relationTestExamples.map( ({ example }) => example.data )  
-    }
-
-    public get JSON() : string {
-        return JSON.stringify( {
-            id: this.id,
-            name: this.name,
-            testExamples: this.relationTestExamples.map( ({ example, id, number }) => ( {
-                id,
-                number,
-                example: { id: example.id, description: example.description, answer: example.answer.data } 
-            } ) )
-        } as TestData )
     }
 
     public static create( data: TestData ) : Test {

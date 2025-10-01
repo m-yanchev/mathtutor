@@ -4,13 +4,16 @@ import { findFormulasInStorageByLatex } from "@/views/example/description/math/a
 import { BEGINING_GET_PARAM } from "@/views/example/description/math/constants"
 import { type NextRequest, NextResponse } from "next/server"
 
-export async function GET(request: NextRequest): Promise<NextResponse> {
+export async function GET( request: NextRequest ): Promise<NextResponse> {
+
     const searchParams = request.nextUrl.searchParams
     const query = searchParams.get(BEGINING_GET_PARAM)
     if (!query) {
         return NextResponse.json({ error: `Query parameter '${BEGINING_GET_PARAM}' is required` }, { status: 400 })
     }
+
     const result = await findFormulasInStorageByLatex(query)
+    
     return NextResponse.json(result)
 }
 

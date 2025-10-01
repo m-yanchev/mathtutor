@@ -1,5 +1,5 @@
 import type { RelationAnswer, ResultOptionMap } from "@/essences/answer/interfaces";
-import OptionAnswer from "../../answer/option/ui/Record";
+import OptionAnswer from "../../../answer/option/ui/Record";
 import Missed from "../ui/Missed";
 import Box from "@/views/answer/relation/ui/Box";
 import OptionBox from "@/views/answer/relation/ui/OptionBox";

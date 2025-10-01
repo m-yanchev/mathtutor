@@ -22,7 +22,7 @@ export default function UpdatingPage({ data, mutation }: Props) {
     return (
         <ModelFormLayout onSubmit={handleSubmit} >
             <NameInput value={test?.name || ""} />
-            <ExampleListInput examples={test?.exampleDataList || []} />
+            <ExampleListInput testExamples={test?.relationTestExamples || []} />
         </ModelFormLayout>
     )
 }

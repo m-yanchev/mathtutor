@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import TopPanel from "@/views/common/ui/TopPanel";
@@ -8,11 +7,6 @@ const nunitoSans = Nunito_Sans({
   subsets: ["cyrillic", "latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
-
-export const metadata: Metadata = {
-  title: "Вчитель математики",
-  description: "Вивчайте математику на прикладах. Спробуйте свої сили на тестах.",
-};
 
 export default function RootLayout({
   children,

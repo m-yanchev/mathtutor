@@ -1,4 +1,4 @@
-import { ExampleResultType } from "@/essences/exampleResult/interfaces";
+import { ExampleResultType } from "@/essences/example/result/interfaces";
 import { ExampleNumbersState } from "@/views/test/interfaces";
 import ExampleNumbersUI from "@/views/test/ui/ExampleNumbers"
 

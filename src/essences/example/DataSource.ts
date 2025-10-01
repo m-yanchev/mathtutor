@@ -1,7 +1,7 @@
+import ExampleDS from "@/dataSources/example/Example";
 import User from "../user/User";
 import Example from "./Example";
 import ExampleInput from "./ExampleInput";
-import ExampleDS from "@/dataSources/example/Example";
 import type { ExampleData } from "./interfaces";
 
 export default class DataSource extends Example {
@@ -9,6 +9,11 @@ export default class DataSource extends Example {
     public static async loadById( id: number ) : Promise<Example> {
         const data: ExampleData = await ExampleDS.getById( id )        
         return new Example(data)
+    }
+
+    public static async loadDataList() : Promise<Example[]> {
+        const dataList: ExampleData[] = await ExampleDS.getList()
+        return dataList.map( data => new Example( data ) )
     }
 
     public static async save( exampleInput: ExampleInput ) : Promise<Example> {

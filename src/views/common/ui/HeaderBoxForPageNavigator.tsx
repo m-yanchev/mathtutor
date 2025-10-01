@@ -5,10 +5,10 @@ type Props = Readonly<{
     children: React.ReactNode
 }>
 
-export default async function TopPageHeaderBlock( { children }: Props ) {
+export default async function HeaderBoxForPageNavigator( { children }: Props ) {
     return (
-        <HeaderBlock title={TOP_LEVEL_LAYOUT_TITLE}>
-            {children}
+        <HeaderBlock title={TOP_LEVEL_LAYOUT_TITLE} className="">
+            { children }
         </HeaderBlock>
     )
 }
