@@ -1,8 +1,8 @@
 'use client'
 
-import useDescriptionEditor from "@/views/example/description/editorExtensions/useDescriptionEditor"
-import ExampleDescEditor from "./ExampleDescEditor"
+import useDescriptionEditor from "@/editor/hooks/useDescriptionEditor"
 import type { ExampleData } from "@/essences/example/interfaces"
+import ExampleDescEditor from "./ExampleDescEditor"
 
 type Props = Readonly<{
     example?: ExampleData | null

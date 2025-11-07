@@ -49,91 +49,54 @@ body {
   background: var(--background);
 }
 
-.ProseMirror:focus {
-  border: none !important;
-  outline: none !important;
+.answer-option {
+    @apply flex items-baseline gap-[8px];
+}
+.answer-option .index {
+    @apply text-body-light;
 }
 
-.desc-editor,
-.example-desc {
-  @apply flex items-start w-full min-h-[200px];
+.answer-options ol {
+    @apply flex;
+}
+.answer-options .row ol {
+    @apply flex-row flex-wrap gap-x-[24px] lg:gap-x-[40px] gap-y-[24px] w-full;
+}
+.answer-options .col ol {
+    @apply flex-col gap-[24px];
 }
 
-.desc-editor .node-leftBox,
-.example-desc .left-box {
-  @apply grow;
+.answer-parts>div {
+  @apply flex flex-col gap-4;
+}
+.answer-parts>div>p {
+  @apply text-body-light italic;
 }
 
-.desc-editor table,
-.example-desc table {
+.answer-relations>div {
+  @apply flex flex-wrap gap-[40px] w-full;
+}
+
+.node-image {
+  @apply flex-none;
+}
+
+.left-box>div {
+  @apply flex flex-col gap-[24px] flex-grow;
+}
+
+.desc-editor {
+  @apply flex flex-col lg:flex-row items-start gap-[24px] w-full min-h-[200px];
+}
+
+.desc-editor table {
   @apply border-collapse mb-4 text-left;
 }
 
-.desc-editor td,
-.desc-editor th,
-.example-desc td,
-.example-desc th {
+.desc-editor td {
   @apply border border-black py-1 px-2;
 }
 
-.desc-editor .node-image,
-.example-desc img {
-  @apply m-4;
-}
-
-.example-desc .answer-relations,
-.desc-editor .answer-relations>div[data-node-view-content-react] {
-  @apply flex w-auto mt-6;
-}
-
-.example-desc .answer-parts,
-.desc-editor .node-answerParts {
-  @apply mr-20
-}
-
-.example-desc .row, 
-.desc-editor .row>div[data-node-view-content-react] {
-  @apply grid grid-cols-5;
-}
-
-.node-answerOptions,
-.example-desc ol {
-  @apply mt-8;
-}
-
-.desc-editor .node-answerOption,
-.example-desc li {
-  @apply min-w-28 mr-8;
-}
-
-.desc-editor .node-answerOption .answer-option-index,
-.example-desc li::before {
-  @apply block float-left w-10 font-bold;
-}
-.example-desc li::before {
-  content: attr(data-index)
-}
-
-.example-desc .tablecell-center P,
 .desc-editor .tablecell-center p{
   @apply text-center;
-}
-
-.desc-editor .node-answerOption p,
-.example-desc li p {
-  @apply m-0 min-w-16;
-}
-
-.desc-editor td>p,
-.example-desc td>p {
-  @apply m-0;
-}
-
-.example-desc p, 
-.desc-editor p {
-  @apply text-justify mb-4 min-w-2;
-}
-
-.example-desc p>span {
-  @apply inline;
 }

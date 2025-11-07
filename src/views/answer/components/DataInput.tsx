@@ -3,6 +3,7 @@
 import { useState } from "react";
 import type { AnswerData } from "@/essences/answer/interfaces";
 import BoxXPadding from "@/views/common/ui/BoxXPadding";
+import TextInput from "@/views/common/ui/TextInput";
 
 export default function ExampleAnswerInput( props: { data: AnswerData } ) {
 
@@ -17,7 +18,7 @@ export default function ExampleAnswerInput( props: { data: AnswerData } ) {
         <BoxXPadding className="mt-8">
             <label className="">
                 <span className="text-gray-700">Відповідь</span>
-                <input className="ml-2 p-1 border rounded-md" name="answer" type="text" onInput={handleInput} value={data}/>
+                <TextInput name="answer" onChange={handleInput} value={data} />
             </label>      
         </BoxXPadding>
     )

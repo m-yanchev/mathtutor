@@ -1,4 +1,4 @@
-import DescParser from "../descParser/DescParser"
+import DescParser from "../../../../editor/descParser/DescParser"
 
 type Props = Readonly<{
     id: number

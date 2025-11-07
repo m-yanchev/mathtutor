@@ -1,5 +1,5 @@
 import { prisma } from "@/dataSources/prisma"
-import type { ExampleData, ExampleInput } from "@/essences/example/interfaces"
+import type { ContentProps, ExampleData, ExampleInput } from "@/essences/example/interfaces"
 import type { TagData } from "@/essences/tag/interfaces";
 import { ExampleDSItemForGet } from "./interfaces";
 
@@ -65,5 +65,20 @@ export default class Example implements ExampleData {
             include: { tags: true }
         })
         return new Example(exampleDSItem)
+    }
+
+    public static updateContentProps = async ( contentProps: ContentProps ): Promise<void> => {        
+        await prisma.example.update({
+            where: { id: contentProps.id },
+            data: { description: contentProps.content }
+        })
+    }
+
+    public static updateContentPropsList = async ( contentPropsList: ContentProps[] ): Promise<void> => {        
+        const updateContentPropsList = contentPropsList.map( props => prisma.example.update({
+            where: { id: props.id },
+            data: { description: props.content }
+        }) )
+        await prisma.$transaction( updateContentPropsList )
     }
 }

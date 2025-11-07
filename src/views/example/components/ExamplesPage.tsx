@@ -2,7 +2,7 @@ import { Fragment } from "react/jsx-runtime";
 import { findTagsInStorageById } from "@/views/tag/actions";
 import TopPageHeaderBlock from "@/views/common/ui/HeaderBoxForPageNavigator";
 import TopPageNavigator from "@/views/common/components/TopPageNavigator";
-import Example from "@/dataSources/example/Example";
+import ExampleDS from "@/dataSources/example/Example";
 import User from "@/essences/user/User";
 import { ListBox, ListItemBox } from "../ui/ListBox";
 import ExampleView from "./Example";
@@ -15,7 +15,7 @@ type Props = Readonly<{
 export default async function ExamplesPage( {tagIdList}: Props ) {
 
   const tagSetPromise = findTagsInStorageById(tagIdList)
-  const exampleListPromise = Example.getList({tagIdList: tagIdList})
+  const exampleListPromise = ExampleDS.getList({tagIdList: tagIdList})
   const userRolePromise = User.getUserRole()
   const [tagSetResult, examples, userRole] = await Promise.all([tagSetPromise, exampleListPromise, userRolePromise]);
 

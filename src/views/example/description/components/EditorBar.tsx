@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import TableBar from "../table/components/Bar";
-import ImageInput from "../images/components/ImageInput";
+import ImageInput from "../image/components/ImageInput";
 import MathInput from "../math/components/MathInput";
 import ControlBox from "../ui/ControlBox";
 import ControlButtonsBox from "../ui/ControlButtonsBox";

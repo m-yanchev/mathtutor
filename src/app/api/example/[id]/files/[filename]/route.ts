@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import ImageFS from "@/views/example/description/images/ImageFS";
+import ImageFS from "@/essences/image/ImageFS";
 
 export async function GET( req: Request, { params }: { params: Promise<{ id: string, filename: string }> }) {
 

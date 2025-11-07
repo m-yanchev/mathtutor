@@ -9,7 +9,7 @@ export default function EditorExampleDescContent() {
         <BoxXPadding className="mt-[45px]">
             <EditorContent 
                 editor={editor} 
-                className="mt-4 border-2 p-2 rounded-md bg-white shadow-xs max-h-96 overflow-y-auto" 
+                className="mt-4 border-[1px] p-[16px] border-stroke rounded-md shadow-dark max-h-96 overflow-y-auto" 
             />
         </BoxXPadding>
     )

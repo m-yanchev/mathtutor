@@ -13,7 +13,7 @@ type Props = Readonly<{
 
 export default function PageControlPanel( {tags, userRole}: Props ) {
     return (
-        <CommonControlBox>
+        <CommonControlBox className="gap-4">
             <TagFilter tags={tags} />
             { userRole === "ADMIN" && 
                 <EssenceAddingLink essence={"example"} title="Завдання" /> }            

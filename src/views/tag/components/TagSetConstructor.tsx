@@ -7,6 +7,7 @@ import { Tag } from "@prisma/client";
 import TagSelect from "../ui/TagSelect";
 import TagFilter from "../ui/TagFilterBox";
 import TagList from "../ui/TagList";
+import TextInput from "@/views/common/ui/TextInput";
 
 type Props = Readonly<{
     onChange: ( tagSetIdList: number[] ) => void
@@ -129,12 +130,7 @@ function TagSelectForExampleEditor( { onInput, value }: TagSelectForExampleEdito
     }
 
     return (
-        <input 
-            className="p-2 border-solid border-2 rounded-md w-full h-full" 
-            type="text" 
-            placeholder="Введіть тег" 
-            onInput={handleInput} 
-            value={value} />
+        <TextInput placeholder="Введіть тег" onChange={handleInput} value={value} />
     )
 }
 

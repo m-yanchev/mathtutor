@@ -34,3 +34,8 @@ export interface ExampleFind {
 }
 
 export type ExampleListFormDataField = string
+
+export type ContentProps = {
+    id: number
+    content: string
+}

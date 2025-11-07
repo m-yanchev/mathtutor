@@ -31,7 +31,7 @@ export default function MathField({formulas, onInput, onSelect} : Props) {
 
     return (        
         <div className="flex-1">
-            <div className="w-full h-full flex items-center justify-between border-solid border-2 rounded-md">{
+            <div className="border-[1px] border-stroke w-full h-full flex items-center justify-between rounded-md">{
                 //@ts-expect-error MathFieldElement is a custom element that is not recognized by TypeScript
                 }<math-field className="w-full bg-inherit" onInput={handleInput}>{inputedLatex}</math-field>
             </div>

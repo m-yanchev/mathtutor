@@ -2,7 +2,7 @@ import ExampleDS from "@/dataSources/example/Example";
 import User from "../user/User";
 import Example from "./Example";
 import ExampleInput from "./ExampleInput";
-import type { ExampleData } from "./interfaces";
+import type { ContentProps, ExampleData } from "./interfaces";
 
 export default class DataSource extends Example {
 
@@ -26,5 +26,15 @@ export default class DataSource extends Example {
         await User.throwIfNotAdmin()
         const data: ExampleData = await ExampleDS.updateById( id, exampleInput )
         return new Example( data )
-    }    
+    }
+
+    public static async updateContentProps( contentProps: ContentProps ) : Promise<void> {
+        await User.throwIfNotAdmin()
+        await ExampleDS.updateContentProps( contentProps )
+    }
+    
+    public static async updateContentPropsList( contentPropsList: ContentProps[] ) : Promise<void> {
+        await User.throwIfNotAdmin()
+        await ExampleDS.updateContentPropsList( contentPropsList )
+    }
 }

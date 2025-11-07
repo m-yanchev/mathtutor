@@ -7,8 +7,8 @@ import type { ExampleData } from "@/essences/example/interfaces"
 import ExampleAnswerInput from "@/views/answer/components/DataInput"
 import ModelFormLayout from "@/views/common/components/ModelFormLayout"
 import DescriptionInput from "../description/components/DescriptionInput"
-import useImage from "../description/images/hooks/useImage"
-import ImageProvider from "../description/images/components/ImageFileProvider"
+import useImage from "../description/image/hooks/useImage"
+import ImageProvider from "../description/image/components/ImageFileProvider"
 
 type Props = Readonly<{
     example?: ExampleData
@@ -32,8 +32,8 @@ export default function UpdatingPage( { example, exampleMutation }: Props ) {
         <ImageProvider value={imageProviderValue}>
             <ModelFormLayout onSubmit={handleSubmit} >
                 <DescriptionInput example={example} />
-                <ExampleAnswerInput data={example?.answer || ""} />
-                <TagSetInput tags={example?.tags} onChange={handleTagSetChange}/>
+                <ExampleAnswerInput data={ example?.answer || "" } />
+                <TagSetInput tags={ example?.tags } onChange={handleTagSetChange}/>
             </ModelFormLayout>
         </ImageProvider>
     )
