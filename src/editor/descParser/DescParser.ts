@@ -1,4 +1,4 @@
-import ImageParser from "./ImageParser"
+import ImageParser from "../Image/ImageParser"
 import { IParser } from "../../views/example/description/interfaces"
 import Description from "./components/Description"
 import LeftBoxParser from "./LeftBoxParser"

@@ -16,6 +16,13 @@ const nextConfig: NextConfig = {
             },
         ];
     },
+    images: {
+        localPatterns: [
+            {
+                pathname: '/api/example/**',
+            },
+        ],
+    },
 };
 
 export default nextConfig;

@@ -16,7 +16,7 @@ class ImageCommonAttributes implements IImageCommonAttributes {
 type ImageAttributesParams = {
     attrs: IImageExtensionAttributes,
     parentId?: number | undefined | null,
-    previewMap: PreviewMap
+    previewMap?: PreviewMap
 }
 
 export class ImageHTMLTagAttributes extends ImageCommonAttributes implements IImageHTMLAttributes {
@@ -28,7 +28,7 @@ export class ImageHTMLTagAttributes extends ImageCommonAttributes implements IIm
         super( attrs)
 
         const isParentId = Boolean(parentId)
-        const localSrc = previewMap.get( attrs.filename )
+        const localSrc = previewMap?.get( attrs.filename )
         if ( !isParentId && !localSrc ) {
             throw new Error("Either parentId or previewMap with filename must be provided")
         }

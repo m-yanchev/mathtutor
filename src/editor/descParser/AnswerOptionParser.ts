@@ -1,4 +1,4 @@
-import ImageParser from "./ImageParser"
+import ImageParser from "../Image/ImageParser"
 import { IParser, ParserComponentProps } from "../../views/example/description/interfaces"
 import { NodeWithChildrenParser } from "./BaseParsers"
 import AnswerOption from "./components/AnswerOption"

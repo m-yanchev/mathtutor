@@ -1,7 +1,7 @@
 import { ImageHTMLTagAttributes } from "@/editor/Image/ImageAttributes"
 import { AnswerOptionImage, DescImage } from "@/editor/descParser/components/images"
 import type { IParser, ParserComponentProps } from "@/views/example/description/interfaces"
-import { NodeType, ParserConstructorProps } from "./interfaces"
+import { NodeType, ParserConstructorProps } from "../descParser/interfaces"
 
 export default class ImageParser implements IParser {
 
@@ -32,7 +32,7 @@ export default class ImageParser implements IParser {
 
         const tagAttrs = new ImageHTMLTagAttributes({ 
                     parentId: id, 
-                    attrs: { filename, alt, lastmodified, width, height } 
+                    attrs: { filename, alt, lastmodified, width, height }
                 })
 
         this.width = tagAttrs.width

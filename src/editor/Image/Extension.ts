@@ -1,8 +1,6 @@
-import { Extension, Node } from '@tiptap/core'
-import { ReactNodeViewRenderer } from '@tiptap/react'
-import ImageComponent from './Component'
-import { ImageExtensionAttributes } from './ImageAttributes'
-import type { PreviewMap } from './interfaces'
+import { Node } from '@tiptap/core'
+import { ImageExtensionAttributes, ImageHTMLTagAttributes } from './ImageAttributes'
+import type { IImageExtensionAttributes, PreviewMap } from './interfaces'
 
 type ImageExtensionStorage = {
   previewMap: PreviewMap
@@ -18,12 +16,12 @@ export interface ImageOptions {
     id?: number | undefined | null
 }
 
-const NodeExtension = Extension.create({
+const NodeExtension = Node.create({
 
     name: "image",
     group: "block",
     atom: true,
-    selectable: true,
+    selectable: false,
     draggable: false,
 
     addOptions(): ImageOptions {
@@ -42,6 +40,7 @@ const NodeExtension = Extension.create({
         return {
             alt: { 
                 required: true,
+                parseHTML: ( element: HTMLElement ) => element.textContent,
             },
             width: { 
                 required: true,
@@ -59,10 +58,18 @@ const NodeExtension = Extension.create({
         }
     },
 
-    addNodeView() {
-        return ReactNodeViewRenderer(ImageComponent)
+    parseHTML() {
+        return [{ tag: 'desc-image' }]
     },
-    
+
+    renderHTML({ HTMLAttributes }) {
+        return ['img', new ImageHTMLTagAttributes({ 
+            parentId: this.options.id, 
+            attrs: HTMLAttributes as IImageExtensionAttributes,
+            previewMap: this.storage.previewMap
+        })]
+    },
+
     addCommands() {
         return {
             insertImage: ( { file, alt }: { file: File, alt: string } ) => ({ chain, editor, state }) => {
