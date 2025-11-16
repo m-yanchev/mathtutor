@@ -1,21 +1,42 @@
-'use client';
+'use client'
 
-import { useState } from "react";
+import { useState } from "react"
+import useDescriptionEditor from "@/editor/hooks/useDescriptionEditor"
+import type { ExampleData } from "@/essences/example/interfaces"
+import { EditorProvider } from "@/editor/components/Provider"
+import type { ControlGroup } from "@/views/example/description/interfaces"
+import ControlBox from "../ui/ControlBox"
+import ControlButtonsBox from "../ui/ControlButtonsBox"
+import ControlButton from "../ui/ControlButton"
+import ImageAddIcon from "../ui/ImageAddIcon"
 import TableBar from "../table/components/Bar";
 import ImageInput from "../image/components/ImageInput";
 import MathInput from "../math/components/MathInput";
-import ControlBox from "../../../../editor/ui/ControlBox";
-import ControlButtonsBox from "../../../../editor/ui/ControlButtonsBox";
-import ControlButton from "../../../../editor/ui/ControlButton";
-import ImageAddIcon from "../../../../editor/ui/ImageAddIcon";
-import TableUpdateIcon from "../table/ui/EnableBarIcon";
+import TableUpdateIcon from "../ui/table/EnableBarIcon";
 import MathAddIcon from "../../../../editor/ui/MathAddIcon";
 import AnswerAddIcon from "../../../../editor/ui/AnswerAddIcon";
-import { ControlGroup } from "../interfaces";
 import { AnswerBar, ParagraphBar } from "./EditorCommandBars";
 import ParagraphFormatIcon from "../../../../editor/ui/ParagraphFormatIcon";
 
-export default function EditorBar() {
+
+type Props = Readonly<{
+    example?: ExampleData | null
+}>
+
+export default function ExampleInput({ example = undefined }: Props) {
+
+    const { editor, jsonContent } = useDescriptionEditor({ example });
+
+    return (<>
+        <EditorProvider editor={editor}>
+            <Bar/>
+            <EditorExampleDescContent/>                   
+        </EditorProvider>
+        <input type="hidden" name="description" value={ jsonContent } />
+    </>);
+}
+
+function Bar() {
     
     const [controlGroup, setControlGroup] = useState<ControlGroup>("math");
 

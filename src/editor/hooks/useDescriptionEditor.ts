@@ -1,8 +1,14 @@
-import { useEditor } from "@tiptap/react"
+import { Editor, useEditor } from "@tiptap/react"
 import { ExampleData } from "@/essences/example/interfaces"
 import EditorProps from "@/editor/EditorProps"
 
-export default function useDescriptionEditor( {example} : { example?: ExampleData | null } ) {
+type ReturnType = {
+    editor: Editor | null,
+    jsonContent: string
+}
+
+export default function useDescriptionEditor( {example} : { example?: ExampleData | null } ): ReturnType {
     const editorProps = new EditorProps( { id: example?.id, content: example?.description } )
-    return useEditor(editorProps)
+    const editor = useEditor(editorProps)
+    return { editor, jsonContent: JSON.stringify(editor?.getJSON() || "") }
 }

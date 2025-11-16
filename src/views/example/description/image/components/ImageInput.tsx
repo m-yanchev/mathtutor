@@ -4,7 +4,9 @@ import { useState } from "react"
 import TextInput from "@/views/common/ui/TextInput"
 import InputBox from "@/views/common/ui/InputBox"
 import AddActionBlock from "@/views/common/ui/AddActionBlock"
-import { useDescEditorContext } from '@/views/example/description/components/EditorProvider'
+import { useDescEditorContext } from '@/editor/components/Provider'
+import { CommandName } from "@/views/example/description/interfaces"
+import { ImageExtensionAttributes } from "@/editor/Image/ImageAttributes"
 import { ALT_PLACEHOLDER, DEFAULT_ALT } from "../constants"
 import { useImageProvider } from "./ImageFileProvider"
 
@@ -18,9 +20,10 @@ export default function ImageInput() {
     const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
 
         const file = event.target.files?.[0]
-        if (!file) return
-
-        if ( editor?.commands.insertImage({ file, alt: alt === "" ? DEFAULT_ALT : alt }) ) {
+        if ( !file ) return
+        const attrs = await ImageExtensionAttributes.createByFile({ file, alt: alt === "" ? DEFAULT_ALT : alt })
+        if ( !attrs ) return
+        if ( editor?.executeCommand({ name: CommandName.InsertImage, options: { file, attrs } }) ) {
             onAdd(file)
         }
     }

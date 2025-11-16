@@ -1,5 +1,4 @@
 import { ImageAttributes } from "@/editor/Image/Extension";
-import { IImageEditorNodeAttributes } from "@/editor/Image/ImageAttributes";
 import { MathfieldElement } from "mathlive";
 
 declare global {
@@ -13,10 +12,7 @@ declare global {
 declare module '@tiptap/core' {
     interface Commands<ReturnType> {
         mathExtension: {
-            insertMath: (props : {formula: string}) => ReturnType
-        },
-        imageExtension: {
-            insertImage: ( props: { file: File, alt: string } ) => ReturnType,
+            insertMath: ( props : { formula: string } ) => ReturnType
         },
         answerOptionsExtension: {
             insertAnswerOptions: () => ReturnType,

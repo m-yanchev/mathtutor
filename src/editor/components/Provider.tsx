@@ -13,7 +13,7 @@ type Props = Readonly<{
     editor: Editor | null
 }>
 
-export function EditorProvider({ children, editor }: Props) {
+export function EditorProvider( { children, editor }: Props ) {
 
     return (
         <EditorContext.Provider value={editor}>

@@ -17,6 +17,8 @@ type Props = Readonly<{
 
 export default function UpdatingPage( { example, exampleMutation }: Props ) {
 
+    console.log("UpdatingPage render");
+
     const { imageProviderValue, uploadImages } = useImage()
     const { handleTagSetChange, tagIdListString } = useTags(example?.tags)
 

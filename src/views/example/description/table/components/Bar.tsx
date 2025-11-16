@@ -1,4 +1,4 @@
-import type { CommandButtonGroupProps } from "../../interfaces";
+import { CommandName, type CommandButtonGroupProps } from "../../interfaces";
 import AddIcon from "../ui/AddIcon";
 import AlignIcon from "../ui/AlignIcon";
 import BarBox from "../ui/BarBox";
@@ -9,28 +9,28 @@ import CommandButton from "./CommandButton";
 const tableCommands: CommandButtonGroupProps[] = [{
     type: "add",
     commands: [
-        { title: "Стовпець зліва", commandName: "addColumnBefore" },
-        { title: "Стовпець справа", commandName: "addColumnAfter" },
+        { title: "Стовпець зліва", commandProps: { name: CommandName.AddColumnBefore } },
+        { title: "Стовпець справа", commandProps: { name: CommandName.AddColumnAfter } },
     ]
 }, {
     type: "add",
     commands: [
-        { title: "Рядок вище", commandName: "addRowBefore" },
-        { title: "Рядок нижче", commandName: "addRowAfter" },
-        { title: "Таблицю", commandName: "insertTable", commandOptions: { withHeaderRow: false } },
+        { title: "Рядок вище", commandProps: { name: CommandName.AddRowBefore } },
+        { title: "Рядок нижче", commandProps: { name: CommandName.AddRowAfter } },
+        { title: "Таблицю", commandProps: { name: CommandName.InsertTable, options: { withHeaderRow: false } } },
     ]
 }, {
     type: "delete",
     commands: [
-        { title: "Стовпець", commandName: "deleteColumn" },
-        { title: "Рядок", commandName: "deleteRow" },
-        { title: "Таблицю", commandName: "deleteTable" },
+        { title: "Стовпець", commandProps: { name: CommandName.DeleteColumn } },
+        { title: "Рядок", commandProps: { name: CommandName.DeleteRow } },
+        { title: "Таблицю", commandProps: { name: CommandName.DeleteTable } },
     ]
 }, {
     type: "align",
     commands: [
-        { title: "За лівим краєм", commandName: "setCellAlignLeft" },
-        { title: "За центром", commandName: "setCellAlignCenter" }
+        { title: "За лівим краєм", commandProps: { name: CommandName.SetCellAlignLeft } },
+        { title: "За центром", commandProps: { name: CommandName.SetCellAlignCenter } }
     ]
 }];
 
@@ -41,7 +41,7 @@ export default function Bar() {
             {tableCommands.map( ( { type, commands }, index ) => (
                 <CommandListBox key={index} >
                     { commands.map( (command) => (
-                        <CommandButton key={command.commandName} commandName={command.commandName}>
+                        <CommandButton key={command.commandProps.name} commandProps={command.commandProps}>
                             { type === "add" && <AddIcon /> }
                             { type === "delete" && <DeleteIcon /> }
                             { type === "align" && <AlignIcon /> }

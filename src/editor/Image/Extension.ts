@@ -1,5 +1,5 @@
 import { Node } from '@tiptap/core'
-import { ImageExtensionAttributes, ImageHTMLTagAttributes } from './ImageAttributes'
+import { ImageHTMLTagAttributes } from './ImageAttributes'
 import type { IImageExtensionAttributes, PreviewMap } from './interfaces'
 
 type ImageExtensionStorage = {
@@ -7,9 +7,14 @@ type ImageExtensionStorage = {
 }
 
 declare module '@tiptap/core' {
-  interface ExtensionStorage {
-    image: ImageExtensionStorage
-  }
+    interface ExtensionStorage {
+        image: ImageExtensionStorage
+    }
+    interface Commands<ReturnType> {
+        image: {
+            insertImage: ( attrs: IImageExtensionAttributes, file: File ) => ReturnType
+        }
+    }
 }
 
 export interface ImageOptions {
@@ -32,7 +37,9 @@ const NodeExtension = Node.create({
 
     addStorage() {
         return {
-            previewMap: new Map<string, string>(),
+            image: {
+                previewMap: new Map<string, string>(),
+            }
         }
     },
 
@@ -63,25 +70,24 @@ const NodeExtension = Node.create({
     },
 
     renderHTML({ HTMLAttributes }) {
+        console.log("Rendering Image with attributes:", HTMLAttributes)
         return ['img', new ImageHTMLTagAttributes({ 
             parentId: this.options.id, 
             attrs: HTMLAttributes as IImageExtensionAttributes,
-            previewMap: this.storage.previewMap
+            previewMap: this.storage.image.previewMap
         })]
     },
 
     addCommands() {
         return {
-            insertImage: ( { file, alt }: { file: File, alt: string } ) => ({ chain, editor, state }) => {
+            insertImage: ( attrs: IImageExtensionAttributes, file: File ) => ({ chain, editor, state }) => {
 
-                this.storage.image.previewMap.set( file.name, URL.createObjectURL(file) )
+                this.storage.image.previewMap.set( attrs.filename, URL.createObjectURL(file) )
+
 
                 const runInserting = (pos: number) => {
                     chain()
-                        .insertContentAt( pos, {
-                            type: this.name,
-                            attrs: ImageExtensionAttributes.createByFile({ file, alt })
-                        } )
+                        .insertContentAt( pos, { type: this.name, attrs } )
                         .focus()
                         .run()
                 }

@@ -28,6 +28,7 @@ export class ImageHTMLTagAttributes extends ImageCommonAttributes implements IIm
         super( attrs)
 
         const isParentId = Boolean(parentId)
+        console.log("ImageHTMLTagAttributes", { parentId, isParentId, attrs, previewMap })
         const localSrc = previewMap?.get( attrs.filename )
         if ( !isParentId && !localSrc ) {
             throw new Error("Either parentId or previewMap with filename must be provided")

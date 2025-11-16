@@ -1,18 +1,17 @@
-import type { CommandName, InsertedTableOptions } from "../../interfaces";
-import { useDescEditorContext } from "../../components/EditorProvider";
+import type { CommandProps } from "@/views/example/description/interfaces";
+import { useDescEditorContext } from "@/editor/components/Provider";
 
 type Props = Readonly<{
     children?: React.ReactNode,
-    commandName: CommandName,
-    commandOptions?: InsertedTableOptions
+    commandProps: CommandProps
 }>;
 
-export default function CommandButton( { children, commandName, commandOptions } : Props ) {
+export default function CommandButton( { children, commandProps } : Props ) {
 
     const editor = useDescEditorContext()
     
     const handleClick = () => {
-        editor?.commands[commandName](commandOptions)
+        editor?.executeCommand(commandProps)
     }
 
     return (

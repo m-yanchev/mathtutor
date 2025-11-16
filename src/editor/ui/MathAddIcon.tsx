@@ -1,4 +1,4 @@
-import UpdateIconBox from "./UpdateIconBox";
+import UpdateIconBox from "../../views/example/description/ui/UpdateIconBox";
 
 export default function MathAddIcon( {active}: { active: boolean } ) {
     return (

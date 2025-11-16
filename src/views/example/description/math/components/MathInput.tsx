@@ -1,11 +1,12 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
-import { useDescEditorContext } from '@/views/example/description/components/EditorProvider'
+import { useDescEditorContext } from '@/editor/components/Provider'
 import { putData } from "@/app/_lib/fetchData";
-import type { Formulas, LatexListFindingResult } from "../interfaces";
-import { BEGINING_GET_PARAM } from "../constants";
 import InputBox from "@/views/common/ui/InputBox";
 import AddActionBlock from "@/views/common/ui/AddActionBlock";
+import { CommandName } from "@/views/example/description/interfaces";
+import type { Formulas, LatexListFindingResult } from "../interfaces";
+import { BEGINING_GET_PARAM } from "../constants";
 
 const MathField = dynamic(() => import("./MathField"), { ssr: false });
 
@@ -48,7 +49,7 @@ export default function MathInput({ submitDisabled = false }: Props) {
     const handleAdd = () => {
         if (inputedLatex === "") return;
         putData<FormulasPUTResponse, FormulasRequest>({ table: "formulas", request: {latex: inputedLatex} });  
-        editor?.commands.insertMath({formula: inputedLatex})
+        editor?.executeCommand({ name: CommandName.InsertMath, options: { formula: inputedLatex } })
     }
 
     return (

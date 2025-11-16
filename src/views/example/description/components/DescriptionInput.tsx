@@ -8,13 +8,14 @@ type Props = Readonly<{
     example?: ExampleData | null
 }>
 
-export default function DescriptionInput({ example = null }: Props) {
-    const editor = useDescriptionEditor({ example });
+export default function DescriptionInput({ example = undefined }: Props) {
+
+    const { editor, jsonContent } = useDescriptionEditor({ example });
 
     return (
         <>
             <ExampleDescEditor editor={editor} />                   
-            <input type="hidden" name="description" value={ editor ? editor.getHTML() : "" } />
+            <input type="hidden" name="description" value={ jsonContent } />
         </>
     );
 }

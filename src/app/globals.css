@@ -49,6 +49,10 @@ body {
   background: var(--background);
 }
 
+.desc-editor p {
+  @apply min-w-2;
+}
+
 .answer-option {
     @apply flex items-baseline gap-[8px];
 }
