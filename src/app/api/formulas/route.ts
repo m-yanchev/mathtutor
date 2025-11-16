@@ -1,7 +1,7 @@
 import { prisma } from "@/dataSources/prisma"
 import User from "@/essences/user/User"
-import { findFormulasInStorageByLatex } from "@/views/example/description/math/actions"
-import { BEGINING_GET_PARAM } from "@/views/example/description/math/constants"
+import { findFormulasInStorageByLatex } from "@/views/formula/actions"
+import { BEGINING_GET_PARAM } from "@/views/formula/constants"
 import { type NextRequest, NextResponse } from "next/server"
 
 export async function GET( request: NextRequest ): Promise<NextResponse> {

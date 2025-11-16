@@ -28,7 +28,7 @@ type MainContent = {
 }
 
 type NewImageContent = {
-    type: "imageV2",
+    type: "image",
     attrs: { 
         alt: string, width: number, height: number, filename: string, lastmodified: number 
     }
@@ -100,8 +100,10 @@ export default function getContentUpdatedJSONData( editor: Editor ): string {
     if ( !editor ) return 'not ready'
     const json = JSON.stringify( editor.getJSON() )
     const content: OldDocContent | NewDocContent = JSON.parse( json )
-
-    return JSON.stringify( content.content[0].type === 'leftBox' ? updateContentJSONData( content as OldDocContent ) : content )
+    console.log( 'getContentUpdatedJSONData content:', content )
+    const updatedContent = updateContentJSONData( content as OldDocContent )
+    console.log( 'getContentUpdatedJSONData updatedContent:', updatedContent )
+    return JSON.stringify( content.content[0].type === 'leftBox' ? updatedContent : content )
 }
 
 function updateContentJSONData( oldContent: OldDocContent ): NewDocContent {
@@ -116,15 +118,12 @@ function updateContentJSONData( oldContent: OldDocContent ): NewDocContent {
 
     const newContent: NewDocContent = {
         type: "doc",
-        content: [{
-            type: "main",
-            content: mainContent
-        }]
+        content: []
     }
 
     if (imageNode) {
         const newImageNode: NewImageContent = {
-            type: "imageV2",
+            type: "image",
             attrs: {
                 alt: imageNode.attrs.alt,
                 width: imageNode.attrs.width,
@@ -135,6 +134,8 @@ function updateContentJSONData( oldContent: OldDocContent ): NewDocContent {
         }
         newContent.content.push( newImageNode )
     }
+
+    newContent.content.push({ type: "main", content: mainContent })
 
     if ( answerOptionsIndex !== -1 ) {
         newContent.content.push( leftBoxContent[answerOptionsIndex] as AnswerOptionsContent )

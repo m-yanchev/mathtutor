@@ -1,10 +1,10 @@
-import { createContext, useContext, ReactNode } from 'react'
+import { createContext, useContext as useReactContext, ReactNode } from 'react'
 import { Editor } from '@tiptap/react'
 
 const EditorContext = createContext<Editor | null>(null)
 
-export function useDescEditorContext() {
-    const editor = useContext(EditorContext)
+export function useContext() {
+    const editor = useReactContext(EditorContext)
     return editor
 }
 
@@ -13,7 +13,7 @@ type Props = Readonly<{
     editor: Editor | null
 }>
 
-export function EditorProvider( { children, editor }: Props ) {
+export function Provider( { children, editor }: Props ) {
 
     return (
         <EditorContext.Provider value={editor}>

@@ -1,16 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import Example from '@/editor/components/Example'
 import { ListBox, ListItemBox } from '@/views/example/ui/ListBox'
 import Number from '@/views/example/number/ui/Number'
-import ExampleDesc from '@/views/example/description/components/ExampleDesc'
 import AnswerInput from '@/views/answer/components/Input'
 import Answer from '@/essences/answer/Answer'
 import Test from '@/essences/test/Test'
-import CheckButton from '../ui/CheckButton'
-import ExampleNumbers from './ExampleNumbers'
-import ControlBox from '../ui/ControlBox'
 import type { TestData } from '@/essences/test/interfaces'
+import CheckButton from '../ui/CheckButton'
+import ControlBox from '../ui/ControlBox'
+import ExampleNumbers from './ExampleNumbers'
 
 type Props = Readonly<{
     test: TestData
@@ -39,7 +39,7 @@ export default function TestForm( props: Props ) {
             { test.relationTestExamples.map( ( {example}, index ) => (
                 <ListItemBox key={ example.id } >
                         <Number value={ index + 1 } />
-                        <ExampleDesc id={example.id} description={example.description} />
+                        <Example id={example.id} content={example.description} />
                         <AnswerInput type={ example.answer.type } onInput={ ( answer ) => handleAnswerInput({ answer, number: index }) } />
                 </ListItemBox>
             ) ) }

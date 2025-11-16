@@ -1,7 +1,7 @@
 import TagSet from "@/views/tag/components/TagSet";
 import { UserRole } from "@/essences/user/interfaces";
 import type { ExampleData } from "@/essences/example/interfaces";
-import ExampleDesc from "../description/components/ExampleDesc";
+import ExampleFromContent from "@/editor/components/Example";
 import TopBox from "../ui/ExampleTopBox";
 import ExampleBottomPanel from "./ExampleBottomPanel";
 import DeleteButton from "./DeleteButton";
@@ -19,7 +19,7 @@ export default function Example( { content, access = "GUEST" } : Props ) {
             { access === "ADMIN" && 
             <DeleteButton id={content.id} /> }
         </TopBox>
-        <ExampleDesc description={content.description} id={content.id} />
+        <ExampleFromContent content={content.description} id={content.id} />
         <ExampleBottomPanel correctAnswerValue={content.answer || ""} access={access} id={content.id} />
     </>)
 }

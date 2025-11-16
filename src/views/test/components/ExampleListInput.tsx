@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import ExampleDesc from "@/views/example/description/components/ExampleDesc";
+import ExampleDesc from "@/editor/descParser/components/ExampleDesc";
 import ExampleTagList from "@/views/tag/components/TagSet";
 import DeletingButton from "@/views/common/ui/DeletingButton";
 import BoxXPadding from "@/views/common/ui/BoxXPadding";

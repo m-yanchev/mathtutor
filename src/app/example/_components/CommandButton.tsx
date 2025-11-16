@@ -1,6 +1,6 @@
 'use client'
 
-import type { CommandName } from "@/views/example/description/interfaces"
+import type { CommandName } from "@/essences/editor/interfaces"
 import { useDescEditorContext } from "@/editor/components/Provider"
 
 type Props = Readonly<CommandButtonAttributes>

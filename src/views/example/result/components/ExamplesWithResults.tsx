@@ -1,4 +1,4 @@
-import ExampleDesc from "@/views/example/description/components/ExampleDesc";
+import ExampleDesc from "@/editor/descParser/components/ExampleDesc";
 import Number from "@/views/example/number/ui/Number";
 import ExampleResult from "@/essences/example/result/ExampleResult";
 import ExamplePoints from "../ui/ExamplePoints";

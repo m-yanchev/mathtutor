@@ -1,6 +1,6 @@
 import DataSource from "@/essences/example/DataSource"
 import { updateExample } from "../actions"
-import ExampleUpdatingPage from "./UpdatingPage"
+import UpdatingBlock from "./UpdatingBlock"
 import UpdatePageHeaderBlock from "./UpdatePageHeaderBlock"
 
 type Props = Readonly<{
@@ -15,6 +15,6 @@ export default async function EditPage( {id} : Props ) {
 
     return (<>
         <UpdatePageHeaderBlock title={title} />
-        <ExampleUpdatingPage example={example.data} exampleMutation={updateExampleWithId} />
+        <UpdatingBlock example={example.data} exampleMutation={updateExampleWithId} />
     </>)
 } 

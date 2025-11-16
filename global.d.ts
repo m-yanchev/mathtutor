@@ -1,4 +1,4 @@
-import { ImageAttributes } from "@/editor/Image/Extension";
+import { ImageAttributes } from "@/editor/extensions/Image";
 import { MathfieldElement } from "mathlive";
 
 declare global {

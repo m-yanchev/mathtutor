@@ -1,5 +1,5 @@
 import { createExample } from "../actions"
-import UpdatingPage from "./UpdatingPage"
+import UpdatingBlock from "./UpdatingBlock"
 import UpdatePageHeaderBlock from "./UpdatePageHeaderBlock"
 
 export default async function CreatePage() {
@@ -10,6 +10,6 @@ export default async function CreatePage() {
 
     return (<>
         <UpdatePageHeaderBlock title={title} />
-        <UpdatingPage exampleMutation={createExample} />
+        <UpdatingBlock exampleMutation={createExample} />
     </>)
 }
