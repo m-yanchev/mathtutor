@@ -1,7 +1,8 @@
 'use client';
 
 import type { EssenceName } from "@/views/common/interfaces";
-import EditingLink from "../ui/EditingLink";
+import Button from "./Button";
+import EditingIcon from "../icons/Editing";
 
 type Props = Readonly<{
     id: number
@@ -10,6 +11,9 @@ type Props = Readonly<{
 
 export default function EssenceEditingLink( { essence, id }: Props ) {
     return (
-        <EditingLink href={`/${essence}/edit/${String(id)}`} />
+        <Button href={`/${essence}/edit/${String(id)}`} variant="small" >
+            <EditingIcon />
+            Редагувати
+        </Button>
     )
 }

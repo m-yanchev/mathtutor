@@ -6,12 +6,14 @@ export default class Example implements IExample {
 
     public id: number
     public description: string
+    public solution: string
     public tags: Tag[]
     public answer: Answer
 
     protected constructor( data : ExampleData ) {
         this.id = data.id
         this.description = data.description
+        this.solution = data.solution
         this.answer = Answer.createByData( data.answer )
         this.tags = data.tags
     }
@@ -20,6 +22,7 @@ export default class Example implements IExample {
         const exampleData: ExampleData = {
             id: this.id,
             description: this.description,
+            solution: this.solution,
             answer: this.answer.data,
             tags: this.tags
         }
@@ -30,11 +33,21 @@ export default class Example implements IExample {
         return {
             id: this.id,
             description: this.description,
+            solution: this.solution,
             answer: this.answer.data,
             tags: this.tags
         }
     }
 
+    public get isSolution() : boolean {
+        return this.solution.trim().length > 0
+    }
+
+    public get href() : string {
+        return `/example/${this.id}`
+    }
+
+    // deprication
     public get contentProps() : ContentProps {
         return {
             id: this.id,

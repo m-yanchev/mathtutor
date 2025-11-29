@@ -1,10 +1,11 @@
 import { CommandName, type CommandButtonGroupProps } from "@/essences/editor/interfaces";
 import AddIcon from "@/views/editor/table/ui/AddIcon";
-import AlignIcon from "@/views/editor/table/ui/AlignIcon";
 import BarBox from "@/views/editor/table/ui/BarBox";
 import CommandListBox from "@/views/editor/table/ui/CommandListBox";
 import DeleteIcon from "@/views/editor/table/ui/DeleteIcon";
 import CommandButton from "@/editor/control/components/CommandButton";
+import LeftAlignIcon from "@/views/editor/table/ui/CenterAlignIcon";
+import CenterAlignIcon from "@/views/editor/table/ui/CenterAlignIcon";
 
 const tableCommands: CommandButtonGroupProps[] = [{
     type: "add",
@@ -42,9 +43,14 @@ export default function Bar() {
                 <CommandListBox key={index} >
                     { commands.map( (command) => (
                         <CommandButton key={command.commandProps.name} commandProps={command.commandProps}>
-                            { type === "add" && <AddIcon /> }
-                            { type === "delete" && <DeleteIcon /> }
-                            { type === "align" && <AlignIcon /> }
+                            { type === "add" && 
+                                <AddIcon /> }
+                            { type === "delete" && 
+                                <DeleteIcon /> }
+                            { type === "align" && command.commandProps.name === CommandName.SetCellAlignLeft && 
+                                <LeftAlignIcon/> }
+                            { type === "align" && command.commandProps.name === CommandName.SetCellAlignCenter && 
+                                <CenterAlignIcon/> }
                             {command.title}
                         </CommandButton>
                     ))}

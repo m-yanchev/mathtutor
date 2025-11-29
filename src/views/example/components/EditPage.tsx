@@ -1,7 +1,7 @@
 import DataSource from "@/essences/example/DataSource"
 import { updateExample } from "../actions"
 import UpdatingBlock from "./UpdatingBlock"
-import UpdatePageHeaderBlock from "./UpdatePageHeaderBlock"
+import UpdatePageHeaderBlock from "./PageHeaderBlock"
 
 type Props = Readonly<{
     id: number

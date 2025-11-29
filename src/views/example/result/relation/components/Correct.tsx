@@ -1,7 +1,7 @@
 import type { RelationValue } from "@/essences/answer/interfaces";
-import OptionCorrect from "@/views/answer/option/components/Correct";
+import OptionCorrect from "@/views/example/result/option/components/Correct";
 import Box from "../ui/Box";
-import OptionBox from "../ui/OptionBox";
+import OptionBox from "../../option/ui/Box";
 
 export default function Correct( { value }: { value: RelationValue } ) {
     return (

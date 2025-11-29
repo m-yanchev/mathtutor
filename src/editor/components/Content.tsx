@@ -5,15 +5,13 @@ import { generateJSON } from "@tiptap/html"
 import getExtensions from '@/editor/getExtensions'
 import MathItem from "@/views/formula/components/MathItem"
 import checkJSONContent from '../checkJSONContent'
+import { EditorOptions } from '../interfaces'
 
-type Props = Readonly<{
-    id: number
-    content: string
-}>
+type Props = Readonly<EditorOptions>
 
-export default function Example( props: Props ) {
+export default function Content( props: Props ) {
 
-    const extensions = getExtensions( props.id )
+    const extensions = getExtensions( props.id, { type: props.type } )
     const options = {
         nodeMapping: {
             math: ( ctx: NodeProps ) => {
@@ -22,7 +20,9 @@ export default function Example( props: Props ) {
             }
         }
     }
-    const content = checkJSONContent( props.content ) ? JSON.parse( props.content ) : generateJSON( props.content, extensions )
+    const content = props.content ? 
+        checkJSONContent( props.content ) ? JSON.parse( props.content ) : generateJSON( props.content, extensions ) : 
+        ""
 
     const output = useMemo( () => {
         return renderToReactElement({

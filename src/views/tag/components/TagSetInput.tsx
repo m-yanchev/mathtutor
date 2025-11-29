@@ -3,7 +3,7 @@
 import { useState } from "react";
 import type { Tag } from "@/views/tag/interfaces";
 import TagSetConstructor from "./TagSetConstructor";
-import BoxXPadding from "@/views/common/ui/BoxXPadding";
+import BoxForInput from "../ui/BoxForInput";
 
 type Props = Readonly<{
     tags?: Tag[]
@@ -23,9 +23,9 @@ export default function TagSetInput( { tags = [], onChange }: Props ) {
     }
 
     return (
-        <BoxXPadding className="mt-8">
+        <BoxForInput>
             <TagSetConstructor onChange={handleTagSetChange} tags={tags} variant="inExample" />
             <input type="hidden" name="tags" value={ tagSetIdList.join(",") } />
-        </BoxXPadding>
+        </BoxForInput>
     )
 }

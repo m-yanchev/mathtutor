@@ -25,4 +25,8 @@ export default class TestResult implements ITestResult {
     public get resultPoints() : number {
         return  this.exampleResults.reduce( ( result, exampleResult ) => result + exampleResult.resultPoints, 0 )
     }
+
+    public get exampleResultViewDataSet() {
+        return this.exampleResults.map( exampleResult => exampleResult.viewData )
+    }
 }

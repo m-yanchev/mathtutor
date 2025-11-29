@@ -4,27 +4,33 @@ import type { Tag, TagData, TagFind, TagListFormDataField } from "@/essences/tag
 export interface Example {
     id: number
     description: string
+    solution: string
     tags: Tag[]
     answer: Answer
     JSON: string
     data: ExampleData
+    isSolution: boolean
+    href: string
 }
 
 export interface ExampleData {
     id: number
     description: string
+    solution: string
     tags: TagData[]
     answer: AnswerData
 }
 
 export interface ExampleInput {
-    description: string,
-    tags: TagFind[],
+    description: string
+    solution: string
+    tags: TagFind[]
     answer: AnswerData
 }
 
 export interface ExampleFormDataFields {
-    description: string,
+    description: string
+    solution: string
     tags: TagListFormDataField
     answer: AnswerData
 }
@@ -35,6 +41,7 @@ export interface ExampleFind {
 
 export type ExampleListFormDataField = string
 
+// deprication
 export type ContentProps = {
     id: number
     content: string

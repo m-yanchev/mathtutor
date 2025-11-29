@@ -2,11 +2,12 @@ import dynamic from "next/dynamic";
 import { useState } from "react";
 import { putData } from "@/app/_lib/fetchData";
 import InputBox from "@/views/common/ui/InputBox";
-import AddActionBlock from "@/views/common/ui/AddActionBlock";
+import AddingIcon from "@/views/common/icons/Adding";
 import { CommandName } from "@/essences/editor/interfaces";
 import type { Formulas, LatexListFindingResult } from "@/views/formula/interfaces";
 import { BEGINING_GET_PARAM } from "@/views/formula/constants";
 import { useContext } from '@/editor/components/Provider'
+import Button from "@/views/common/components/Button";
 
 const MathField = dynamic(() => import("@/views/formula/components/MathField"), { ssr: false });
 
@@ -54,10 +55,11 @@ export default function MathInput({ submitDisabled = false }: Props) {
 
     return (
         <InputBox label="Введіть формулу" >
-            <MathField formulas={formulas} onInput={handleInput} onSelect={handleSelect}/>                
-            <button onClick={handleAdd} disabled={addButtonDisabled || submitDisabled} type="button" >
-                <AddActionBlock title="Формулу" />
-            </button>
+            <MathField formulas={formulas} onInput={handleInput} onSelect={handleSelect}/>
+            <Button disabled={ addButtonDisabled || submitDisabled } onClick={handleAdd} variant="largeGray" >            
+                <AddingIcon />
+                Додати формулу
+            </Button>
         </InputBox>
     )
 }

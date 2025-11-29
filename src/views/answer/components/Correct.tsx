@@ -1,8 +1,8 @@
 import Answer from "@/essences/answer/Answer";
 import type { AnswerData } from "@/essences/answer/interfaces";
-import OptionCorrect from "../option/components/Correct";
-import RelationCorrect from "../relation/components/Correct";
-import NumericalCorrect from "../numerical/components/Correct";
+import OptionCorrect from "../../example/result/option/components/Correct";
+import RelationCorrect from "../../example/result/relation/components/Correct";
+import NumericalCorrect from "../../example/result/numerical/components/Correct";
 import  Box from "../ui/Box";
 
 type Props = Readonly<{

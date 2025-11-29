@@ -15,9 +15,7 @@ type Props = Readonly<{
     exampleMutation: (formData: FormData) => Promise<ExampleData>,
 }>
 
-export default function UpdatingPage( { example, exampleMutation }: Props ) {
-
-    console.log("UpdatingPage render");
+export default function UpdatingBlock( { example, exampleMutation }: Props ) {
 
     const { imageProviderValue, uploadImages } = useImage()
     const { handleTagSetChange, tagIdListString } = useTags(example?.tags)
@@ -31,8 +29,8 @@ export default function UpdatingPage( { example, exampleMutation }: Props ) {
     }
 
     return (
-        <ImageProvider value={imageProviderValue}>
-            <ModelFormLayout onSubmit={handleSubmit} >
+        <ImageProvider value={imageProviderValue} >
+            <ModelFormLayout onSubmit={handleSubmit} cancelHref={redirectingPath} >
                 <ExampleInput example={example} />
                 <ExampleAnswerInput data={ example?.answer || "" } />
                 <TagSetInput tags={ example?.tags } onChange={handleTagSetChange}/>

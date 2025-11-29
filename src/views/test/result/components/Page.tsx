@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import { Fragment } from "react/jsx-runtime"
 import Header from "@/views/common/ui/HeaderBlockWithBreadCrumbs"
 import ControlBox from "@/views/test/ui/ControlBox"
-import ExampleResults from "@/views/example/result/components/ExamplesWithResults"
+import ExampleResults from "@/views/example/result/components/ResultList"
 import TestResult from "@/essences/test/result/TestResult"
 import { TESTS_PAGE_TITLE } from "@/views/common/constants"
 import PointsForTest from "../ui/PointsForTest"
@@ -29,7 +29,7 @@ export default async function Page( {id}: Props ) {
                 <ExampleNumbers types={testResult.exampleResults.map( ({resultType}) => resultType )} />
                 <PointsForTest total={testResult.totalPoints} value={testResult.resultPoints} />
             </ControlBox>
-            <ExampleResults results={testResult.exampleResults} />
+            <ExampleResults results={ testResult.exampleResultViewDataSet } />
         </Fragment>
     ) 
 }

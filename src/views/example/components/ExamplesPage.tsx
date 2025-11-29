@@ -5,7 +5,7 @@ import TopPageNavigator from "@/views/common/components/TopPageNavigator";
 import ExampleDS from "@/dataSources/example/Example";
 import User from "@/essences/user/User";
 import { ListBox, ListItemBox } from "../ui/ListBox";
-import ExampleView from "./Example";
+import ExampleView from "./ExampleView";
 import PageControlPanel from "./PageControlPanel";
 
 type Props = Readonly<{

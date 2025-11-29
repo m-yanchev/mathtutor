@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Example from '@/editor/components/Example'
+import Example from '@/editor/components/Content'
 import { ListBox, ListItemBox } from '@/views/example/ui/ListBox'
 import Number from '@/views/example/number/ui/Number'
 import AnswerInput from '@/views/answer/components/Input'

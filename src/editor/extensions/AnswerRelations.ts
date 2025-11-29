@@ -1,6 +1,6 @@
 import { Node } from '@tiptap/core';
 
-export const AnswerRelations = Node.create({
+const AnswerRelations = Node.create({
     name: 'answerRelations',
     group: 'block',
     content: 'answerParts answerParts',

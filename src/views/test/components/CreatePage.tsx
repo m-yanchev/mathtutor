@@ -1,5 +1,5 @@
 import { createTest } from "../actions";
-import UpdatingPage from "./UpdatingPage";
+import UpdatingPage from "./UpdatingBlock";
 import UpdatePageHeaderBlock from "./UpdatePageHeaderBlock";
 
 export default function createPage() {

@@ -7,12 +7,14 @@ export default class Example implements ExampleData {
 
     public readonly id: number
     public readonly description: string;
+    public readonly solution: string;
     public readonly tags: TagData[];
     public readonly answer: string;
 
-    public constructor( { id, description, tags, answer }: ExampleDSItemForGet ) {
+    public constructor( { id, description, solution, tags, answer }: ExampleDSItemForGet ) {
         this.id = id
         this.description = description
+        this.solution = solution || ""
         this.tags = tags
         this.answer = answer || ""
     }
@@ -43,9 +45,11 @@ export default class Example implements ExampleData {
     }
 
     public static create = async ( exampleInput: ExampleInput ): Promise<ExampleData> => {
+        console.log(exampleInput);
         const exampleDSItem = await prisma.example.create({
             data: { 
-                description: exampleInput.description, 
+                description: exampleInput.description,
+                solution: exampleInput.solution,
                 answer: exampleInput.answer,
                 tags: { connect: exampleInput.tags.map( tag => ( { id: tag.id } ) ) }
             },
@@ -58,7 +62,8 @@ export default class Example implements ExampleData {
         const exampleDSItem = await prisma.example.update({
             where: { id },
             data: { 
-                description: exampleInput.description, 
+                description: exampleInput.description,
+                solution: exampleInput.solution,
                 answer: exampleInput.answer,
                 tags: { set: exampleInput.tags.map( tag => ( { id: tag.id } ) ) }
             },

@@ -1,5 +1,6 @@
+import AddingIcon from "../icons/Adding";
 import type { EssenceName } from "../interfaces";
-import AddingLink from "./AddingLink";
+import Button from "./Button";
 
 type Props = Readonly<{
     essence: EssenceName
@@ -8,6 +9,9 @@ type Props = Readonly<{
 
 export default function EssenceAddingLink( {essence, title}: Props ) {
     return (
-        <AddingLink href={`/${essence}/create`} title={title} />
+        <Button href={`/${essence}/create`} variant="largeOrange" >
+            <AddingIcon />
+            {`Додати ${title ?? ""}`}
+        </Button>
     )
 }

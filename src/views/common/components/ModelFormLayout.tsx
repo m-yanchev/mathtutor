@@ -1,23 +1,22 @@
 'use client'
 
-import BoxXPadding from "@/views/common/ui/BoxXPadding";
+import Box from "@/views/common/ui/FormButtonsBox";
+import Button from "./Button";
 
 type Props = Readonly<{
     children?: React.ReactNode;
     onSubmit: ( formData: FormData ) => void;
+    cancelHref?: string
 }>;
 
 
 type FormButtonProps = Readonly<{
-    className: string
-    children: string
-    onClick?: () => void
-    type?: "button" | "submit"
+    cancelHref: string
 }>
 
 export default function ModelFormLayout(props: Props) {
 
-    const { children, onSubmit } = props;
+    const { children, onSubmit, cancelHref = "" } = props;
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -28,31 +27,20 @@ export default function ModelFormLayout(props: Props) {
     return (
         <form onSubmit={handleSubmit} >
             {children}
-            <FormButtons />
+            <FormButtons cancelHref={cancelHref} />
         </form>
     );
 }
 
-function FormButtons() {
+function FormButtons( {cancelHref}: FormButtonProps ) {
     return (
-        <BoxXPadding>
-            <ConfirmButton />
-        </BoxXPadding>
-    )
-}
-
-function ConfirmButton() {
-    return (
-        <FormButton className="bg-red-500 hover:bg-red-600" >
-            {"Зберегти"}
-        </FormButton>
-    )
-}
-
-function FormButton({ className, type = "submit", children, onClick = () => {} }: FormButtonProps) {
-    return (
-        <button className={`mt-10 px-4 py-2 text-white rounded-sm cursor-pointer ${className}`} type={type} onClick={onClick} >
-            {children}
-        </button>
+        <Box>
+            <Button variant="small" href={cancelHref} >
+                Вийти без збереження
+            </Button>
+            <Button type="submit" variant="largeOrange" >
+                Зберегти
+            </Button>
+        </Box>
     )
 }

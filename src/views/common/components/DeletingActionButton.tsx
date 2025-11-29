@@ -1,7 +1,8 @@
 'use client'
 
 import { useRouter } from "next/navigation"
-import DeletingButton from "../ui/DeletingButton"
+import Button from "./Button"
+import DeletingIcon from "../icons/Deleting"
 
 type Props = Readonly<{
     action: () => Promise<void>
@@ -18,7 +19,9 @@ export default function DeletingActionButton( {action}: Props ) {
     }
 
     return (
-        <DeletingButton onClick={ () => { handleClick() }}  />
+        <Button onClick={ () => { handleClick() }} variant="small" >
+            <DeletingIcon />
+        </Button>
     );
 }
 

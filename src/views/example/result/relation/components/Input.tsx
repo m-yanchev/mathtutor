@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Answer from "@/essences/answer/Answer";
 import Box from "../ui/Box";
-import OptionBox from "../ui/OptionBox";
+import OptionBox from "../../option/ui/Box";
 import Record from "../../option/ui/Record";
 
 export default function Input( { onInput }: { onInput: ( answer: Answer ) => void } ) {

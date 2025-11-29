@@ -100,9 +100,7 @@ export default function getContentUpdatedJSONData( editor: Editor ): string {
     if ( !editor ) return 'not ready'
     const json = JSON.stringify( editor.getJSON() )
     const content: OldDocContent | NewDocContent = JSON.parse( json )
-    console.log( 'getContentUpdatedJSONData content:', content )
     const updatedContent = updateContentJSONData( content as OldDocContent )
-    console.log( 'getContentUpdatedJSONData updatedContent:', updatedContent )
     return JSON.stringify( content.content[0].type === 'leftBox' ? updatedContent : content )
 }
 

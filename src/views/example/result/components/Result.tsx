@@ -1,7 +1,7 @@
 import type { Answer } from "@/essences/answer/interfaces";
-import NumericalAnswer from "@/views/example/result/components/NumericalResult";
-import OptionAnswer from "@/views/example/result/components/OptionResult";
-import RelationAnswer from "@/views/example/result/components/RelationResult";
+import NumericalAnswer from "./NumericalResult";
+import OptionAnswer from "./OptionResult";
+import RelationAnswer from "./RelationResult";
 
 type Props = Readonly<{
     value: Answer

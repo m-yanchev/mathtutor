@@ -12,7 +12,6 @@ export default function useHTMLToJSONContentListParser( htmlContentPropsList: Co
 
     const jsonContentList: string[] = editors.map( editor => {
         if ( !editor ) return 'not ready'
-        console.log( 'useHTMLToJSONContentListParser editor:', editor )
         const updatedContentObject = getContentUpdatedJSONData( editor )
         return updatedContentObject
     } )

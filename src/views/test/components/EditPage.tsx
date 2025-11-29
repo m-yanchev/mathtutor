@@ -1,7 +1,7 @@
 import DataSource from "@/essences/test/DataSource";
 import { updateTest } from "../actions";
 import UpdatePageHeaderBlock from "./UpdatePageHeaderBlock";
-import UpdatingPage from "./UpdatingPage";
+import UpdatingPage from "./UpdatingBlock";
 
 export default async function EditPage( {id}: {id: number} ) {
 

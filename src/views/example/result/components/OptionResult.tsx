@@ -1,18 +1,22 @@
 "use client";
 
-import Record from "@/views/answer/option/ui/Record";
-import Missed from "../ui/Missed";
 import type { ResultOptionMap } from "@/essences/answer/interfaces";
+import Record from "../option/ui/Record";
+import Box from "../option/ui/Box";
+import Missed from "../ui/Missed";
 
 type Props = Readonly<{
     map: ResultOptionMap
     missed: boolean
+    index?: number
 }>;
 
-export default function OptionResult( { map, missed }: Props ) {
+export default function OptionResult( { map, missed, index }: Props ) {
 
-    return (<>
-        <Record map={map} />
-        <Missed hidden={ !missed } />
-    </>)
+    return (
+        <Box index={index}>
+            <Record map={map} />
+            <Missed hidden={ !missed } />
+        </Box>
+    )
 }

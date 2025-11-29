@@ -4,11 +4,10 @@ export default function AddIcon() {
     return (
         <UpdateIconBox>
             <svg 
-                className="fill-body-dark" 
                 width="14" 
                 height="14" 
                 viewBox="0 0 14 14" 
-                fill="none" 
+                stroke="none" 
                 xmlns="http://www.w3.org/2000/svg" >
                 <mask id="path-1-inside-1_518_2060" fill="white">
                     <path 

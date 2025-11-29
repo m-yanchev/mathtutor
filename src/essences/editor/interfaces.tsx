@@ -1,5 +1,7 @@
 import { IImageExtensionAttributes } from "./image/interfaces"
 
+export type EditorType = "condition" | "solution"
+
 export type ControlGroup = "image" | "table" | "math" | "answers" | "paragraph"
 
 export interface IParser {

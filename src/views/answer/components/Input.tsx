@@ -3,9 +3,9 @@
 import { useState } from "react"
 import type { AnswerType } from "@/essences/answer/interfaces"
 import Answer from "@/essences/answer/Answer"
-import NumericalInput from "../numerical/components/Input"
-import OptionInput from "../option/components/Input"
-import RelationInput from "../relation/components/Input"
+import NumericalInput from "../../example/result/numerical/components/Input"
+import OptionInput from "../../example/result/option/components/Input"
+import RelationInput from "../../example/result/relation/components/Input"
 
 type Props = Readonly<{
     type: AnswerType

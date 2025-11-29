@@ -8,6 +8,8 @@ import TagSelect from "../ui/TagSelect";
 import TagFilter from "../ui/TagFilterBox";
 import TagList from "../ui/TagList";
 import TextInput from "@/views/common/ui/TextInput";
+import Button from "@/views/common/components/Button";
+import AddActionIcon from "@/views/common/icons/Adding";
 
 type Props = Readonly<{
     onChange: ( tagSetIdList: number[] ) => void
@@ -117,7 +119,10 @@ function Select({ onAdd, variant = "inExample"}: SelectProps) {
                 }
             </div>
             { allowedAdd &&
-            <AddButton onClick={handleAddButtonClick} disabled={addButtonIsDisabled} /> }
+            <Button onClick={handleAddButtonClick} disabled={addButtonIsDisabled} variant="largeGray" >
+                <AddActionIcon />
+                Додати тег
+            </Button> }
         </div>
     )
 }

@@ -1,16 +1,18 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import ExampleDesc from "@/editor/descParser/components/ExampleDesc";
 import ExampleTagList from "@/views/tag/components/TagSet";
-import DeletingButton from "@/views/common/ui/DeletingButton";
+import DeletingIcon from "@/views/common/icons/Deleting";
 import BoxXPadding from "@/views/common/ui/BoxXPadding";
 import TextInput from "@/views/common/ui/TextInput";
-import { TestExample } from "@/essences/test/TestExample";
-import Example from "@/essences/example/Example";
 import InputBox from "@/views/common/ui/InputBox";
 import { ListBox, ListItemBox } from "@/views/example/ui/ListBox";
 import Box from "@/views/example/ui/Box";
+import { TestExample } from "@/essences/test/TestExample";
+import Example from "@/essences/example/Example";
+import Condition from "@/editor/components/Content";
+import Button from "@/views/common/components/Button";
+import AddingIcon from "@/views/common/icons/Adding";
 
 type ExampleListInputProps = Readonly<{
     testExamples: TestExample[]
@@ -74,25 +76,28 @@ function Search( {onChoose}: SearchProps ) {
 
     return (
         <BoxXPadding>
-            {examples.length > 0 && 
+            { examples.length > 0 && 
                 <Box>
                     <div className="flex justify-between items-center">
-                        <SearchButton 
-                            onClick={() => setIndex((prev) => (prev > 0 ? prev - 1 : examples.length - 1))}>
+                        <Button 
+                            onClick={() => setIndex((prev) => (prev > 0 ? prev - 1 : examples.length - 1))}
+                            variant="small" >
                             Попередній
-                        </SearchButton>
-                        <button
+                        </Button>
+                        <Button
                             type="button"
-                            className="px-3 py-1 bg-green-500 text-white rounded-sm hover:bg-green-600"
-                            onClick={handleAddClick}>
+                            onClick={handleAddClick}
+                            variant="largeOrange" >
+                            <AddingIcon/>
                             Додати
-                        </button>
-                        <SearchButton 
-                            onClick={() => setIndex((prev) => (prev < examples.length - 1 ? prev + 1 : 0))}>
+                        </Button>
+                        <Button 
+                            onClick={() => setIndex((prev) => (prev < examples.length - 1 ? prev + 1 : 0))}
+                            variant="small" >
                             Наступний
-                        </SearchButton>
+                        </Button>
                     </div>            
-                    <ExampleDesc description={examples[index].description} id={examples[index].id} />
+                    <Condition content={examples[index].description} id={examples[index].id} />
                     <ExampleTagList tags={examples[index].tags} />
                 </Box>
             }
@@ -110,9 +115,11 @@ function List({ testExamples, onDelete }: ListProps) {
                         <div className="flex items-center">
                             <h3 className="text-lg font-semibold">Завдання №{ index + 1 }</h3>
                         </div>
-                        <DeletingButton onClick={ () => onDelete(index) } />
+                        <Button onClick={ () => onDelete(index) } variant="small" >
+                            <DeletingIcon />
+                        </Button>
                     </div>
-                    <ExampleDesc description={ example.description } id={ example.id } />
+                    <Condition content={ example.description } id={ example.id } />
                     <InputBox label="Вартість правильної відповіді" htmlFor="costs">
                         <TextInput 
                             name="costs" 

@@ -1,3 +1,4 @@
+import type { ExampleResult as ExampleResultViewData } from "@/views/example/result/interfaces"
 import type { ExampleResult, ExampleResultData, ExampleResultInput } from "@/essences/example/result/interfaces"
 
 export interface TestResult {
@@ -6,6 +7,7 @@ export interface TestResult {
     resultPoints: number
     testName: string
     exampleResults: ExampleResult[]
+    exampleResultViewDataSet: ExampleResultViewData[]
 }
 
 export interface TestResultData {

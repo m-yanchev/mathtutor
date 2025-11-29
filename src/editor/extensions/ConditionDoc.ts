@@ -1,9 +1,9 @@
 import { Node } from "@tiptap/core"
 
-const DescDoc = Node.create({    
+const ConditionDoc = Node.create({    
     name: "doc",
     topNode: true,
     content: "(image? main (answerOptions|answerRelations)?) | (leftBox image?)",
 })
 
-export default DescDoc
+export default ConditionDoc

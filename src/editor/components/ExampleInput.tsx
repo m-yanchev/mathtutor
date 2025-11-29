@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from "react"
-import { EditorContent } from "@tiptap/react"
 import type { ExampleData } from "@/essences/example/interfaces"
-import type { ControlGroup } from "@/essences/editor/interfaces"
+import type { ControlGroup, EditorType } from "@/essences/editor/interfaces"
 import ControlBox from "@/views/editor/ui/ControlBox"
 import ControlButtonsBox from "@/views/editor/ui/ControlButtonsBox"
 import ControlButton from "@/views/editor/ui/ControlButton"
@@ -12,12 +11,12 @@ import TableUpdateIcon from "@/views/editor/table/ui/EnableBarIcon";
 import MathAddIcon from "@/views/editor/ui/MathAddIcon";
 import AnswerAddIcon from "@/views/editor/answer/ui/AddIcon";
 import ParagraphFormatIcon from "@/views/editor/ui/ParagraphFormatIcon";
-import BoxXPadding from "@/views/common/ui/BoxXPadding"
-import useEditor from "../hooks/useExampleEditor"
+import useEditor from "../hooks/useEditor"
 import TableBar from "../control/table/components/Bar";
 import ImageInput from "../control/image/components/ImageInput";
 import MathInput from "../control/formula/components/MathInput";
-import { Provider, useContext } from "./Provider"
+import Content from "../ui/Content"
+import { Provider } from "./Provider"
 import { AnswerBar, ParagraphBar } from "./CommandBars";
 
 
@@ -27,14 +26,23 @@ type Props = Readonly<{
 
 export default function ExampleInput({ example = undefined }: Props) {
 
-    const { editor, jsonContent } = useEditor({ example });
+    const { condition, solution } = useEditor({ example });
+    const [ type, setType ] = useState<EditorType>("condition");
+
+    const handleSelect = ( selectedType: EditorType ) => {
+        setType( selectedType );
+    }
+
+    const currentEditor = type === "condition" ? condition : solution;
 
     return (<>
-        <Provider editor={editor}>
+        <Provider editor={ currentEditor.editor || null } >
             <Bar/>
-            <EditorExampleDescContent/>                   
         </Provider>
-        <input type="hidden" name="description" value={ jsonContent } />
+        <Content editor={ condition.editor || null } onSelect={ () => handleSelect("condition") } />                 
+        <input type="hidden" name="description" value={ condition.content || "" } />
+        <Content editor={ solution.editor || null } onSelect={ () => handleSelect("solution") } />                 
+        <input type="hidden" name="solution" value={ solution.content || "" } />
     </>);
 }
 
@@ -81,19 +89,5 @@ function Bar() {
             { controlGroup === "answers" && 
             <AnswerBar /> }
         </ControlBox>
-    )
-}
-
-function EditorExampleDescContent() {
-
-    const editor = useContext()
-
-    return (
-        <BoxXPadding className="mt-[45px]">
-            <EditorContent 
-                className="mt-4 border-[1px] p-[16px] border-stroke rounded-md shadow-dark max-h-96 overflow-y-auto"
-                editor={editor}
-            />
-        </BoxXPadding>
     )
 }
