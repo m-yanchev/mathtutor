@@ -6,11 +6,11 @@ import Example from "@/essences/example/Example";
 import Answer from "@/essences/answer/Answer";
 import type { ExampleResult } from "@/views/example/result/interfaces";
 import { ListBox, ListItemBox } from "@/views/example/ui/ListBox";
-import SmallButton from "@/views/common/buttons/SmallButton";
 import Solution from "@/views/example/components/Solution";
 import Number from "@/views/example/number/ui/Number";
 import ExamplePoints from "../ui/ExamplePoints";
 import Result from "./Result";
+import Button from "@/views/common/components/Button";
 
 type Props = Readonly<{
     results: ExampleResult[]
@@ -39,9 +39,9 @@ export default function ResultList( {results}: Props ) {
                         <div className="flex justify-between items-end w-full" >
                             <Result value={result} correct={ example.answer } />
                             { example.isSolution &&
-                                <SmallButton onClick={handleClick} >
+                                <Button onClick={handleClick} variant="small" >
                                     {solutionButtonTitle}
-                                </SmallButton> 
+                                </Button> 
                             }
                         </div>
                         { solutionVisible && example.isSolution &&

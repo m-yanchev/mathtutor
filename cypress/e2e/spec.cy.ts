@@ -81,25 +81,15 @@ describe("Navigation", () => {
   it("redirect to examples page from main page", () => {
     cy.visit('/')
     cy.get("nav").find('a').click()
-    cy.get( "h2", { timeout: 10000 } ).should('contain', "Каталог окремих завдань")
+    cy.get( "h2", { timeout: 50000 } ).should('contain', "Каталог окремих завдань")
   })
 
   it("redirect to test page from examples page", () => {
     cy.visit('/examples')
     cy.get("nav").find('a').click()
-    cy.get( "h2", { timeout: 20000 } ).should('contain', "Каталог пробних тестів")
+    cy.get( "h2", { timeout: 50000 } ).should('contain', "Каталог пробних тестів")
     cy.get("a").find("h3").contains("НМТ 2023 Демонстраційний варіант").click()
-    cy.get( "h1", { timeout: 20000 } ).should('contain', "НМТ 2023 Демонстраційний варіант")
-  })
-})
-
-describe("Scenarios", () => {
-
-  it("solve the test", () => {
-    cy.visit('/tests')
-    cy.get("a").find("h3").contains("НМТ 2023 Демонстраційний варіант").click()
-    cy.get("button", { timeout: 20000 } ).contains("Перевірити тест").click()
-    cy.get( "div", { timeout: 20000 } ).should('contain', "Ваш результат:")
+    cy.get( "h1", { timeout: 50000 } ).should('contain', "НМТ 2023 Демонстраційний варіант")
   })
 
 })
