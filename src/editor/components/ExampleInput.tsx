@@ -17,7 +17,7 @@ import ImageInput from "../control/image/components/ImageInput";
 import MathInput from "../control/formula/components/MathInput";
 import Content from "../ui/Content"
 import { Provider } from "./Provider"
-import { AnswerBar, ParagraphBar } from "./CommandBars";
+import { AnswerBar, ParagraphBar } from "../control/components/CommandBars";
 
 
 type Props = Readonly<{

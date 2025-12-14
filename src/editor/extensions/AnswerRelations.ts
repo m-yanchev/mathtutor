@@ -11,7 +11,7 @@ const AnswerRelations = Node.create({
     },
 
     renderHTML() {
-        return ['div', {class: "flex flex-wrap gap-[40px] w-full order-3"}, 0]
+        return ['div', {class: "flex flex-wrap gap-[40px] order-3"}, 0]
     },
 
     addCommands() {

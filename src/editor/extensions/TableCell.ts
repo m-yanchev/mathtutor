@@ -10,9 +10,9 @@ export default TableCell.extend({
             textAlign: {
                 default: 'left',
                 renderHTML: (attributes: { textAlign: "left" | "center" }) => {
-                    const textAlignClass = attributes.textAlign || 'left'
+                    const alignClass = attributes.textAlign === 'left' ? "text-left" : "text-center"
                     return {
-                        class: `border border-black py-1 px-2 text-${textAlignClass}`
+                        class: `border border-black py-1 px-2 ${alignClass}`
                     }
                 },
                 parseHTML: (element: HTMLElement) => {

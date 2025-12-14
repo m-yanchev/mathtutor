@@ -8,20 +8,15 @@ export default Paragraph.extend({
 
             insertParagraph: () => ({ chain, state, editor }) => {
 
-                let pos = 0;
-                let found = false;
                 state.doc.descendants((node, nodePos) => {
                     if (node.type.name === 'answerRelations' || node.type.name === 'answerOptions') {
-                        found = true;
-                        pos = nodePos;
                         return false;
                     }
                 });
-                if (!found) {
-                    const $nodePos = editor.$node("leftBox");
-                    if (!$nodePos) return false;
-                    pos = $nodePos.to - 2;
-                };
+                    
+                const $nodePos = editor.$node("main");
+                if (!$nodePos) return false;
+                const pos = $nodePos.to - 2;
 
                 return chain()
                     .command(({ tr }) => {

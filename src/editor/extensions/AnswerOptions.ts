@@ -17,7 +17,7 @@ const AnswerOptions = Node.create({
     addAttributes() {
         return {
             state: { 
-                parseHTML: element => element.getAttribute('state')
+                default: "col"
             }
         };
     },
@@ -45,8 +45,8 @@ const AnswerOptions = Node.create({
                 }).focus().run();
             },
 
-            changeAnswerOptionsInlineStatus: () => ({ view, state, dispatch }) => {
-                
+            changeAnswerOptionsInlineStatus: () => ({ chain, state }) => {
+
                 let pos = 0
                 let found = false
                 state.doc.descendants((node, nodePos) => {
@@ -67,12 +67,10 @@ const AnswerOptions = Node.create({
 
                 const newState = node.attrs.state === "col" ? "row" : "col"
 
-                if (dispatch) {
-                    const tr = state.tr.setNodeMarkup(pos, undefined, { state: newState })
-                    dispatch(tr)
-                    view.focus()
-                }
-                
+                chain().updateAttributes('answerOptions', {
+                    state: newState
+                }).focus().run();
+
                 return true           
             }
         };

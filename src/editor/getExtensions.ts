@@ -18,6 +18,7 @@ import Main from "./extensions/Main"
 import ConditionDoc from "./extensions/ConditionDoc"
 import Table from "./extensions/Table";
 import SolutionDoc from "./extensions/SolutionDoc";
+import ImagePreview from "./extensions/ImagePreview";
 
 export default function getExtensions( id?: number, options?: { type?: EditorType } ): Extensions {
     return options?.type === "solution" ? [
@@ -25,6 +26,7 @@ export default function getExtensions( id?: number, options?: { type?: EditorTyp
         SolutionDoc,
         Main,
         getImageExtensionWithConfig({ id }),
+        ImagePreview,
         Paragraph,
         Bold,
         Text,
@@ -39,6 +41,7 @@ export default function getExtensions( id?: number, options?: { type?: EditorTyp
         Main,
         LeftBox,
         getImageExtensionWithConfig({ id }),
+        ImagePreview,
         Paragraph,
         Bold,
         Text,

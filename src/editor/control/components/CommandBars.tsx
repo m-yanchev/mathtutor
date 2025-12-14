@@ -1,7 +1,7 @@
 'use client';
 
 import { CommandName, type CommandButtonAttributes } from "@/essences/editor/interfaces";
-import { useContext } from "./Provider";
+import { useContext } from "../../components/Provider";
 
 type BarProps = Readonly<{
     commands: CommandButtonAttributes[];
@@ -49,6 +49,7 @@ function CommandButton( { title, commandProps } : CommandButtonProps ) {
     const editor = useContext()
     
     const handleClick = () => {
+        console.log(commandProps.name, commandProps.options);
         ( editor?.commands[ commandProps.name ] as any )( commandProps.options )
     }
 

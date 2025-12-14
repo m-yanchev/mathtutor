@@ -7,9 +7,10 @@ type Props = Readonly<{
     variant: "small" | "largeOrange" | "largeGray"
     disabled?: boolean
     type?: "button" | "submit"
+    htmlFor?: string
 }>
 
-export default function Button( { children, onClick, href, variant, disabled, type = "button" }: Props ) {
+export default function Button( { children, onClick, href, variant, disabled, type = "button", htmlFor }: Props ) {
 
     const sizeClasses = {
         small: "gap-[8px] py-[2px] px-[8px] text-[16px] leading-[20px]",
@@ -30,7 +31,13 @@ export default function Button( { children, onClick, href, variant, disabled, ty
                 {children}
             </Link>
         )
-    } else  {
+    } else if ( htmlFor ) {
+        return (
+            <label htmlFor={htmlFor} className={className} >
+                {children}
+            </label>
+        )
+    } else {
         return (
             <button 
                 type={ type || "button" } 

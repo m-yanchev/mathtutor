@@ -43,7 +43,7 @@ export default function ImageInput() {
                 className="hidden"
                 id="image-upload"
             />
-            <Button variant="largeGray" >
+            <Button variant="largeGray" htmlFor="image-upload" >
                 <AddingIcon />
                 Додати Картинку
             </Button>

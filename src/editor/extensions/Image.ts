@@ -1,21 +1,14 @@
 import { Node } from '@tiptap/core'
-import type { IImageExtensionAttributes, PreviewMap } from '@/essences/editor/image/interfaces'
+import type { IImageExtensionAttributes } from '@/essences/editor/image/interfaces'
 import type { InsertedImageOptions } from '@/essences/editor/interfaces'
 import { ImageHTMLTagAttributes } from '../ImageAttributes'
 
-type ImageExtensionStorage = {
-  previewMap: PreviewMap
-}
-
 declare module '@tiptap/core' {
-    interface ExtensionStorage {
-        image: ImageExtensionStorage
-    }
     interface Commands<ReturnType> {
         image: {
             insertImage: ( { attrs, file }: InsertedImageOptions ) => ReturnType
         }
-    }
+    }    
 }
 
 export interface ImageOptions {
@@ -32,12 +25,6 @@ const NodeExtension = Node.create({
     addOptions(): ImageOptions {
         return {
             id: 0
-        }
-    },
-
-    addStorage() {
-        return {
-            previewMap: new Map<string, string>(),
         }
     },
 
@@ -68,22 +55,21 @@ const NodeExtension = Node.create({
     },
 
     renderHTML({ HTMLAttributes }) {
-        const storage = this.editor?.storage as { image: ImageExtensionStorage };
         return [ 'img', {
             class: "order-2 float-right ml-[24px] mb-[24px]",
             ... new ImageHTMLTagAttributes({ 
                 parentId: this.options.id, 
                 attrs: HTMLAttributes as IImageExtensionAttributes,
-                previewMap: storage?.image.previewMap
+                previewMap: this.editor?.storage.imagePreview.map,
             })
         } ]
     },
 
     addCommands() {
         return {
-            insertImage: ({ attrs, file }: InsertedImageOptions) => ({ chain, state }) => {
+            insertImage: ({ attrs, file }: InsertedImageOptions) => ({ chain, state, editor }) => {
                 
-                this.storage.previewMap.set( attrs.filename, URL.createObjectURL(file) )
+                editor.storage.imagePreview.map.set( attrs.filename, URL.createObjectURL(file) )
                 const runInserting = ( pos: number ) => {
                     chain()
                         .insertContentAt( pos, { type: this.name, attrs } )
