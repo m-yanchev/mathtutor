@@ -36,19 +36,24 @@ export default class User {
     }
 
     public static async loginByKey( key: string) {
-        const corretAdminKey = process.env.ADMIN_KEY;
-        const actualRole: UserRole = key === corretAdminKey ? "ADMIN" : "USER"
-        const sessionUserId = await Session.getUserId()
-        if ( sessionUserId === 0 ) {
-            const user = await UserDS.create({ role: actualRole });
-            await Session.create(user.id)
-        } else {
-            const sessionUser = await UserDS.getById(sessionUserId)
-            if ( !sessionUser ) throw new Error("User row isn`t in database but this user is in session")
-            if ( sessionUser.role !== actualRole ) {
-                await UserDS.updateById(sessionUserId, { role: actualRole })
+        try {
+            const corretAdminKey = process.env.ADMIN_KEY;
+            const actualRole: UserRole = key === corretAdminKey ? "ADMIN" : "USER"
+            const sessionUserId = await Session.getUserId()
+            if ( sessionUserId === 0 ) {
+                const user = await UserDS.create({ role: actualRole });
+                await Session.create(user.id)
+            } else {
+                const sessionUser = await UserDS.getById(sessionUserId)
+                if ( !sessionUser ) throw new Error("User row isn`t in database but this user is in session")
+                if ( sessionUser.role !== actualRole ) {
+                    await UserDS.updateById(sessionUserId, { role: actualRole })
+                }
             }
-        }        
+        } catch (error) {
+            console.error( `Error in User essence, been running function loginByKey( key: ${key} ):`, error );
+            throw error
+        }      
     }
 
     public static async throwIfNotAdmin() {

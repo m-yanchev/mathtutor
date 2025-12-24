@@ -4,7 +4,12 @@ import { prisma } from "../prisma";
 export default class User {
 
     public static create( { role }: UserData = { role: "USER" } ) {
-        return prisma.user.create({ data: { role } })
+        try {
+            return prisma.user.create({ data: { role } })
+        } catch (error) {
+            console.error( `Error in User data source, been running function create( { role: ${role} } ):`, error);
+            throw error;
+        }
     }
 
     public static getById( id: number ) {

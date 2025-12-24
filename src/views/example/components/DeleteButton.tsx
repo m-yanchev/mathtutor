@@ -11,7 +11,7 @@ export default function DeleteButton( {id}: Props ) {
 
     const handleDeleting = async () => {
         const success = await deleteExample(id)
-        if (!success) alert( "Не можно видалити завдання, тому що воно використовувається в тестах." )
+        if (!success) alert( "Не можна видалити завдання, тому що воно використовувається в тестах." )
     }
 
     return (
