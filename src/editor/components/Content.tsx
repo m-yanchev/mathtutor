@@ -33,7 +33,7 @@ export default function Content( props: Props ) {
     }, [ props.content, props.id ] )
 
     return (
-        <div className="w-full flex flex-col gap-[24px] lg:block lg:space-y-[24px]" >
+        <div className="w-full flex flex-col gap-6 lg:block lg:space-y-6" >
             {output}
         </div>
     )

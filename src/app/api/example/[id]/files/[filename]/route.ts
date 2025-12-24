@@ -8,9 +8,9 @@ export async function GET( req: Request, { params }: { params: Promise<{ id: str
     const imageFS = new ImageFS({ parent: { name: 'examples', id: Number(id) }});
     const { fileBuffer, mimeType } = await imageFS.readFile(filename)
 
-    return new NextResponse(fileBuffer, {
+    return new NextResponse( new Uint8Array(fileBuffer), {
         headers: {
             'Content-Type': mimeType,
         }
-    });
+    } );
 }

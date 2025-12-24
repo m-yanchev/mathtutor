@@ -13,6 +13,9 @@ const local_nunito_sans = localFont({
     weight: "400",
     style: "italic",
   }],
+  display: 'swap',
+  preload: true,
+  variable: '--font-nunito-sans',
 })
 
 export default function RootLayout({
@@ -21,9 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" className={local_nunito_sans.className}>
-      <GoogleTagManager gtmId="G-JLM4DLW61J"/>
-      <body className="font-normal text-[18px] leading-[24px] text-body-dark">
+    <html lang="uk" className={local_nunito_sans.className} >
+      <GoogleTagManager gtmId={ process.env.NEXT_PUBLIC_GTM_ID || '' } />
+      <body className="font-normal text-[18px] leading-6 text-body-dark">
         <div className="fixed h-full w-full bg-gray-light overflow-auto">
           <div className="w-full" >
             <TopPanel />

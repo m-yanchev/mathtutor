@@ -21,7 +21,7 @@ export default Node.create({
     },
 
     renderHTML({ HTMLAttributes  }) {
-        return ['math', {}, HTMLAttributes.formula]
+        return [ 'math', {}, HTMLAttributes.formula ]
     },
 
     parseHTML() {
@@ -34,8 +34,8 @@ export default Node.create({
 
     addCommands() {
         return {
-            insertMath: ({formula}: MathAttributes) => ({ chain }) => {
-                chain().insertContent({type: "math", attrs: {formula}}).focus().run()
+            insertMath: ( {formula}: MathAttributes ) => ({ chain }) => {
+                chain().insertContent({ type: "math", attrs: {formula} }).focus().run()
                 return true
             }
         }

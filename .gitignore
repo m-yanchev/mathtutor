@@ -48,3 +48,7 @@ mathteacher_education_crt
 
 /uploads/*
 
+.nginx
+
+*.tar.gz
+

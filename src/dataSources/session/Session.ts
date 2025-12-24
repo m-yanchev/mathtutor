@@ -39,18 +39,22 @@ export default class Session {
         return session?.userId ?? 0
     }
 
-    public static async create(userId: number) {
-        const expiresAt = new Date( Date.now() + 5 * 365 * 24 * 60 * 60 * 1000 )
-        const session = await Session.encrypt({ userId, expiresAt })
-        const cookieStore = await cookies()
-        
-        cookieStore.set('session', session, {
-            httpOnly: true,
-            secure: true,
-            expires: expiresAt,
-            sameSite: 'strict',
-            path: '/',
-        })
+    public static async create( userId: number ) {
+        try {
+            const expiresAt = new Date( Date.now() + 5 * 365 * 24 * 60 * 60 * 1000 )
+            const session = await Session.encrypt({ userId, expiresAt })
+            const cookieStore = await cookies()            
+            cookieStore.set('session', session, {
+                httpOnly: true,
+                secure: true,
+                expires: expiresAt,
+                sameSite: 'strict',
+                path: '/',
+            })
+        } catch (error) {
+            console.error( "Error in Session data source, been running function create( userId: ", userId, " ): ", error );
+            throw error;
+        }
     }
 
     public static async delete() {
