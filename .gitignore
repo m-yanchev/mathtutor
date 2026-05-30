@@ -52,3 +52,6 @@ mathteacher_education_crt
 
 *.tar.gz
 
+
+.vercel
+.env*

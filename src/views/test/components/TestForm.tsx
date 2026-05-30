@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Example from '@/editor/components/Content'
-import { ListBox, ListItemBox } from '@/views/example/ui/ListBox'
+import { ListBox, ListItemBox } from '@/views/example/ui/ListBoxes'
 import Number from '@/views/example/number/ui/Number'
 import AnswerInput from '@/views/answer/components/Input'
 import Answer from '@/essences/answer/Answer'

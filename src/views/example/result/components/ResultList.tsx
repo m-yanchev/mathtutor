@@ -5,7 +5,7 @@ import Content from "@/editor/components/Content";
 import Example from "@/essences/example/Example";
 import Answer from "@/essences/answer/Answer";
 import type { ExampleResult } from "@/views/example/result/interfaces";
-import { ListBox, ListItemBox } from "@/views/example/ui/ListBox";
+import { ListBox, ListItemBox } from "@/views/example/ui/ListBoxes";
 import Solution from "@/views/example/components/Solution";
 import Number from "@/views/example/number/ui/Number";
 import ExamplePoints from "../ui/ExamplePoints";

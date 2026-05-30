@@ -1,8 +1,9 @@
+'use server'
+
 import { putData } from "@/app/_lib/fetchData"
 import { prisma } from "@/dataSources/prisma"
 import { TagListFindingParams, TagListFindingResult, TagPuttingParams, TagPuttingResult } from "./interfaces"
-
-export const BEGINING_GET_PARAM = "title"
+import { BEGINING_GET_PARAM } from "./constants"
 
 export async function findTagsInStorageByTitle( {titleBegining}: TagListFindingParams ): Promise<TagListFindingResult> {
     const tags = await prisma.tag.findMany({where: {title: {startsWith: titleBegining}}, select: {title: true, id: true}})

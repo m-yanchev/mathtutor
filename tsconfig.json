@@ -31,7 +31,8 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "ignoreDeprecations": "5.0"
   },
   "include": [
     "global.d.ts",

@@ -6,7 +6,7 @@ import DeletingIcon from "@/views/common/icons/Deleting";
 import BoxXPadding from "@/views/common/ui/BoxXPadding";
 import TextInput from "@/views/common/ui/TextInput";
 import InputBox from "@/views/common/ui/InputBox";
-import { ListBox, ListItemBox } from "@/views/example/ui/ListBox";
+import { ListBox, ListItemBox } from "@/views/example/ui/ListBoxes";
 import Box from "@/views/example/ui/Box";
 import { TestExample } from "@/essences/test/TestExample";
 import Example from "@/essences/example/Example";
@@ -25,11 +25,6 @@ type SearchProps = Readonly<{
 type ListProps = Readonly<{
     testExamples: TestExample[]
     onDelete: ( index: number ) => void
-}>
-
-type SearchButtonProps = Readonly<{
-    onClick: () => void
-    children: React.ReactNode
 }>
 
 export default function ExampleListInput( props: ExampleListInputProps ) {
@@ -134,15 +129,3 @@ function List({ testExamples, onDelete }: ListProps) {
         </ListBox>
     )
 }
-
-function SearchButton({ onClick, children}: SearchButtonProps) {
-    return (
-        <button 
-            onClick={onClick}
-            type="button"
-            className="px-3 py-1 bg-gray-300 rounded-sm hover:bg-gray-400">
-            {children}
-        </button>
-    )
-}
-

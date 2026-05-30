@@ -1,5 +1,5 @@
 import Button from "@/views/common/components/Button";
-import { Test } from "@prisma/client";
+import { Test } from "@/generated/prisma/client";
 import Link from "next/link";
 
 type Props = Readonly<{

@@ -1,6 +1,6 @@
 "use server"
 
-import { prisma } from "@/dataSources/prisma"
+import { prisma } from "../../dataSources/prisma"
 import { LatexListFindingResult } from "./interfaces";
 
 export async function findFormulasInStorageByLatex( latex: string ): Promise<LatexListFindingResult> {

@@ -7,6 +7,61 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://mathteacher.education/example/104</loc>
+        <lastmod>2025-05-07</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mathteacher.education/example/145</loc>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mathteacher.education/example/171</loc>
+        <lastmod>2026-05-04</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mathteacher.education/example/180</loc>
+        <lastmod>2025-12-24</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mathteacher.education/example/181</loc>
+        <lastmod>2026-01-04</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mathteacher.education/example/183</loc>
+        <lastmod>2026-05-06</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mathteacher.education/example/193</loc>
+        <lastmod>2026-05-04</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+    <url>
+        <loc>https://mathteacher.education/example/194</loc>
+        <lastmod>2026-05-15</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://mathteacher.education/example/196</loc>
+        <lastmod>2026-05-04</lastmod>
+        <changefreq>never</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
         <loc>https://mathteacher.education/tests</loc>
         <lastmod>2025-10-10</lastmod>
         <changefreq>weekly</changefreq>

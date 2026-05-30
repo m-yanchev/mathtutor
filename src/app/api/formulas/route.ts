@@ -1,4 +1,4 @@
-import { prisma } from "@/dataSources/prisma"
+import { prisma } from "../../../dataSources/prisma"
 import User from "@/essences/user/User"
 import { findFormulasInStorageByLatex } from "@/views/formula/actions"
 import { BEGINING_GET_PARAM } from "@/views/formula/constants"

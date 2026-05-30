@@ -1,4 +1,4 @@
-import { Tag } from "@prisma/client"
+import { Tag } from "@/generated/prisma/client"
 
 type Props = Readonly<{
     tagList: Tag[]

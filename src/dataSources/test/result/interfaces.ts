@@ -1,4 +1,4 @@
-import type { Test, TestResult } from "@prisma/client"
+import type { Test, TestResult } from "@/generated/prisma/client"
 import { ExampleResultDSItemForGet } from "@/dataSources/example/result/interfaces"
 
 export type TestResultDSItemForGet = 

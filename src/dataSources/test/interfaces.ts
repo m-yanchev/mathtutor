@@ -1,4 +1,4 @@
-import type { Test, TestExample } from "@prisma/client"
+import type { Test, TestExample } from "@/generated/prisma/client"
 import { ExampleDSItemForGet } from "../example/interfaces"
 
 export type TestDSItemForGet = Test & { testExamples: TestExampleDSItemForGet[] }

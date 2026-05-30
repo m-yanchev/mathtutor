@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.nginx/
+.vscode/
+
+mathteacher_education_crt/
+
+.env*.local
+*.log
+
+PostgreSQL/
+
+uploads/
+
+*.tar.gz

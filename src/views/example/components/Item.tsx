@@ -4,17 +4,17 @@ import type { ExampleData } from "@/essences/example/interfaces";
 import Example from "@/essences/example/Example";
 import Content from "@/editor/components/Content";
 import TopBox from "../ui/ExampleTopBox";
-import ExampleBottomPanel from "./BottomPanel";
+import BottomPanel from "./BottomPanel";
 import DeleteButton from "./DeleteButton";
 import Solution from "./Solution";
 
 type Props = Readonly<{
     content: ExampleData
     access?: UserRole
-    isSolutionButtonDisplay?: boolean
+    isSolutionDisplay?: boolean
 }>
 
-export default function ExampleView( { content, access = "GUEST", isSolutionButtonDisplay = false } : Props ) {
+export default function Item( { content, access = "GUEST", isSolutionDisplay = false } : Props ) {
 
     const example = Example.create(content)
 
@@ -25,12 +25,12 @@ export default function ExampleView( { content, access = "GUEST", isSolutionButt
             <DeleteButton id={example.id} /> }
         </TopBox>
         <Content content={example.description} id={example.id } type={"condition"} />
-        { isSolutionButtonDisplay && 
+        { isSolutionDisplay && 
             <Solution example={example} />
         }
-        <ExampleBottomPanel 
+        <BottomPanel 
             access={access} 
             data={example.data} 
-            isSolutionButtonDisplay={isSolutionButtonDisplay} />
+            isSolutionDisplay={isSolutionDisplay} />
     </>)
 }

@@ -1,5 +1,5 @@
-import { Prisma } from "@prisma/client"
-import { prisma } from "@/dataSources/prisma"
+import { Prisma } from "@/generated/prisma/client"
+import { prisma } from "../prisma"
 import type { TestData, TestExampleData, TestInput } from "@/essences/test/interfaces"
 import { TestDSItemForGet } from "./interfaces"
 import { TestExample } from "./TestExample"

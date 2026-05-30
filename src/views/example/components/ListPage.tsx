@@ -4,15 +4,15 @@ import TopPageHeaderBlock from "@/views/common/ui/HeaderBoxForPageNavigator";
 import TopPageNavigator from "@/views/common/components/TopPageNavigator";
 import ExampleDS from "@/dataSources/example/Example";
 import User from "@/essences/user/User";
-import { ListBox, ListItemBox } from "../ui/ListBox";
-import ExampleView from "./ExampleView";
+import { ListBox, ListItemBox } from "../ui/ListBoxes";
+import Item from "./Item";
 import PageControlPanel from "./PageControlPanel";
 
 type Props = Readonly<{
     tagIdList: number[]
 }>
 
-export default async function ExamplesPage( {tagIdList}: Props ) {
+export default async function ListPage( {tagIdList}: Props ) {
 
   const tagSetPromise = findTagsInStorageById(tagIdList)
   const exampleListPromise = ExampleDS.getList({tagIdList: tagIdList})
@@ -28,7 +28,7 @@ export default async function ExamplesPage( {tagIdList}: Props ) {
       <ListBox>
         { examples.map( example => 
           <ListItemBox key={example.id}>
-            <ExampleView content={example} access={userRole} />
+            <Item content={example} access={userRole} />
           </ListItemBox>
         ) }
       </ListBox>

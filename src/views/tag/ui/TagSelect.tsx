@@ -17,7 +17,7 @@ export default function TagSelect( { onInput, value }: Props ) {
             </svg>
             <input 
                 className="font-normal w-full lg:w-[580px] text-[16px] leading-[20px] text-body-dark placeholder:text-gray focus:outline-0" 
-                onInput={handleInput}
+                onChange={handleInput}
                 value={value}
                 placeholder="Введить тег" />
             <div className="flex justify-center items-center size-[24px]">

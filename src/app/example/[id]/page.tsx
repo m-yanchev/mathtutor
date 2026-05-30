@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ViewPage from "@/views/example/components/ViewPage"
+import ViewPage from "@/views/example/components/ItemPage"
 
 type Props = Readonly<{
     params: Promise<{ id: string }>

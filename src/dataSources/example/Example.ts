@@ -1,4 +1,4 @@
-import { prisma } from "@/dataSources/prisma"
+import { prisma } from "../prisma"
 import type { ContentProps, ExampleData, ExampleInput } from "@/essences/example/interfaces"
 import type { TagData } from "@/essences/tag/interfaces";
 import { ExampleDSItemForGet } from "./interfaces";

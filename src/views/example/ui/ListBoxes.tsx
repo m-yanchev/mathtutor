@@ -7,8 +7,8 @@ type Props = Readonly<{
 
 export function ListBox( { children }: Props ) {
     return (
-        <BoxXPadding className="my-[24px]">
-            <ul className="flex flex-col gap-[24px]">
+        <BoxXPadding className="my-6">
+            <ul className="flex flex-col gap-6">
                 {children}
             </ul>
         </BoxXPadding>

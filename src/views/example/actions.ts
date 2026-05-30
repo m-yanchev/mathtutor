@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma } from "@/dataSources/prisma"
+import { prisma } from "../../dataSources/prisma"
 import { rm } from "fs/promises"
 import path from "path"
 import ExampleInput from "@/essences/example/ExampleInput"

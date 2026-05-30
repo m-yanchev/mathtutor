@@ -1,5 +1,5 @@
 import type { TestResultData, TestResultInput } from "@/essences/test/result/interfaces"
-import { prisma } from "../../prisma"
+import { prisma } from "@/dataSources/prisma"
 import { TestExample } from "../TestExample"
 import { TestResultDSItemForGet } from "./interfaces"
 

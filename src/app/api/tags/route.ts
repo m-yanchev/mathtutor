@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
-import { BEGINING_GET_PARAM, findTagsInStorageByTitle, putTagInStorage } from "@/views/tag/actions"
+import { findTagsInStorageByTitle, putTagInStorage } from "@/views/tag/actions"
+import { BEGINING_GET_PARAM } from "@/views/tag/constants"
 import User from "@/essences/user/User"
 
 export async function GET( request: NextRequest ): Promise<NextResponse> {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTagIdListByString } from "@/views/tag/helpers";
-import ExamplesPage from "@/views/example/components/ExamplesPage";
+import ExamplesPage from "@/views/example/components/ListPage";
 
 type Props = Readonly<{
     params: Promise<{ filters: string[] | undefined}>

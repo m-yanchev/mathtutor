@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { getTagsFromServer, putTagInServer } from "@/views/tag/actions";
 import TagSet from "./TagSet"
-import { Tag } from "@prisma/client";
+import { Tag } from "@/generated/prisma/client";
 import TagSelect from "../ui/TagSelect";
 import TagFilter from "../ui/TagFilterBox";
 import TagList from "../ui/TagList";

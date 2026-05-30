@@ -4,7 +4,7 @@ type Props = Readonly<{
 }>;
 
 export default function Box( { children, visible }: Props ) {
-    const visibleClass = visible ? "" : "hidden"
+    const visibleClass = visible ? "" : "invisible"
 
     return (
         <div className={`w-full ${visibleClass}`}>

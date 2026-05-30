@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { prisma } from "@/dataSources/prisma";
+import { prisma } from "../../../dataSources/prisma";
 import User from "@/essences/user/User";
 
 export async function GET() {
