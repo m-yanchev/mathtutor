@@ -5,7 +5,7 @@ node_modules/
 
 mathteacher_education_crt/
 
-.env*.local
+.env*
 *.log
 
 PostgreSQL/
