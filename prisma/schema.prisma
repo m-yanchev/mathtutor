@@ -62,8 +62,8 @@ model TestResult {
 model ExampleResult {
   id            Int         @id @default(autoincrement())
   testResultId  Int
-  testExampleId Int
   answer        String?
+  testExampleId Int
   testExample   TestExample @relation(fields: [testExampleId], references: [id])
   testResult    TestResult  @relation(fields: [testResultId], references: [id])
 
@@ -74,31 +74,41 @@ model ExampleResult {
 model Example {
   id            Int           @id @default(autoincrement())
   description   String        @unique
-  solution      String?
   answer        String?
+  solution      String?
   testRelations TestExample[]
-  tags          Tag[]        @relation("ExampleToTag")
+  tags          Tag[]         @relation("ExampleToTag")
 
   @@map("examples")
 }
 
 model Tag {
-  id       Int        @id @default(autoincrement())
-  title    String     @unique
-  examples Example[]  @relation("ExampleToTag")
+  id       Int       @id @default(autoincrement())
+  title    String    @unique
+  examples Example[] @relation("ExampleToTag")
 
   @@map("tags")
+}
+
+model TeoreticalMaterial {
+  id      Int    @id @default(autoincrement())
+  title   String @unique
+  content String
+  lessons Lesson[]
+
+  @@map("teoreticalMaterials")
+}
+
+model Lesson {
+  id                 Int                 @id @default(autoincrement())
+  title              String              @unique
+  teoreticalMaterial TeoreticalMaterial? @relation(fields: [teoreticalMaterialId], references: [id])
+  teoreticalMaterialId Int?
+
+  @@map("lessons")
 }
 
 enum Role {
   USER
   ADMIN
-}
-
-model TeoreticalMaterial {
-  id          Int     @id @default(autoincrement())
-  title       String  @unique
-  content     String
-
-  @@map("teoreticalMaterials")
 }

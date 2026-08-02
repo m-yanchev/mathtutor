@@ -45,7 +45,6 @@ export default class Example implements ExampleData {
     }
 
     public static create = async ( exampleInput: ExampleInput ): Promise<ExampleData> => {
-        console.log(exampleInput);
         const exampleDSItem = await prisma.example.create({
             data: { 
                 description: exampleInput.description,

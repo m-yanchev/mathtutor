@@ -59,7 +59,8 @@ export const ModelName = {
   ExampleResult: 'ExampleResult',
   Example: 'Example',
   Tag: 'Tag',
-  TeoreticalMaterial: 'TeoreticalMaterial'
+  TeoreticalMaterial: 'TeoreticalMaterial',
+  Lesson: 'Lesson'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -126,8 +127,8 @@ export type TestResultScalarFieldEnum = (typeof TestResultScalarFieldEnum)[keyof
 export const ExampleResultScalarFieldEnum = {
   id: 'id',
   testResultId: 'testResultId',
-  testExampleId: 'testExampleId',
-  answer: 'answer'
+  answer: 'answer',
+  testExampleId: 'testExampleId'
 } as const
 
 export type ExampleResultScalarFieldEnum = (typeof ExampleResultScalarFieldEnum)[keyof typeof ExampleResultScalarFieldEnum]
@@ -136,8 +137,8 @@ export type ExampleResultScalarFieldEnum = (typeof ExampleResultScalarFieldEnum)
 export const ExampleScalarFieldEnum = {
   id: 'id',
   description: 'description',
-  solution: 'solution',
-  answer: 'answer'
+  answer: 'answer',
+  solution: 'solution'
 } as const
 
 export type ExampleScalarFieldEnum = (typeof ExampleScalarFieldEnum)[keyof typeof ExampleScalarFieldEnum]
@@ -158,6 +159,15 @@ export const TeoreticalMaterialScalarFieldEnum = {
 } as const
 
 export type TeoreticalMaterialScalarFieldEnum = (typeof TeoreticalMaterialScalarFieldEnum)[keyof typeof TeoreticalMaterialScalarFieldEnum]
+
+
+export const LessonScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  teoreticalMaterialId: 'teoreticalMaterialId'
+} as const
+
+export type LessonScalarFieldEnum = (typeof LessonScalarFieldEnum)[keyof typeof LessonScalarFieldEnum]
 
 
 export const SortOrder = {

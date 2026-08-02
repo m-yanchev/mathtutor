@@ -1,9 +1,9 @@
 'use server'
 
 import type { UploadFilesParams } from "@/essences/image/interfaces";
-import ImageFS from "@/essences/image/ImageFS";
+import ImageStorage from "@/essences/image/ImageStorage";
 
 export default async function uploadFiles(files: File[], {parent}: UploadFilesParams) {
-    const imageFS = new ImageFS({ parent });
-    await imageFS.writeFiles({ files });
+    const imageStorage = new ImageStorage({ parent });
+    await imageStorage.writeFiles({ files });
 }

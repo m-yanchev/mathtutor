@@ -18,7 +18,6 @@ export default function useEditor( {example} : { example?: ExampleData | null } 
         const editorState = useTiptapEditorState({
             editor: editor, 
             selector: ({editor}) => {
-                console.log("Selecting editor state", editor);
                 if (!editor) return { content: null };
                 return {
                     content: editor.getJSON(),

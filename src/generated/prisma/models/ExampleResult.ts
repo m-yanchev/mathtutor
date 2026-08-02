@@ -41,22 +41,22 @@ export type ExampleResultSumAggregateOutputType = {
 export type ExampleResultMinAggregateOutputType = {
   id: number | null
   testResultId: number | null
-  testExampleId: number | null
   answer: string | null
+  testExampleId: number | null
 }
 
 export type ExampleResultMaxAggregateOutputType = {
   id: number | null
   testResultId: number | null
-  testExampleId: number | null
   answer: string | null
+  testExampleId: number | null
 }
 
 export type ExampleResultCountAggregateOutputType = {
   id: number
   testResultId: number
-  testExampleId: number
   answer: number
+  testExampleId: number
   _all: number
 }
 
@@ -76,22 +76,22 @@ export type ExampleResultSumAggregateInputType = {
 export type ExampleResultMinAggregateInputType = {
   id?: true
   testResultId?: true
-  testExampleId?: true
   answer?: true
+  testExampleId?: true
 }
 
 export type ExampleResultMaxAggregateInputType = {
   id?: true
   testResultId?: true
-  testExampleId?: true
   answer?: true
+  testExampleId?: true
 }
 
 export type ExampleResultCountAggregateInputType = {
   id?: true
   testResultId?: true
-  testExampleId?: true
   answer?: true
+  testExampleId?: true
   _all?: true
 }
 
@@ -184,8 +184,8 @@ export type ExampleResultGroupByArgs<ExtArgs extends runtime.Types.Extensions.In
 export type ExampleResultGroupByOutputType = {
   id: number
   testResultId: number
-  testExampleId: number
   answer: string | null
+  testExampleId: number
   _count: ExampleResultCountAggregateOutputType | null
   _avg: ExampleResultAvgAggregateOutputType | null
   _sum: ExampleResultSumAggregateOutputType | null
@@ -214,8 +214,8 @@ export type ExampleResultWhereInput = {
   NOT?: Prisma.ExampleResultWhereInput | Prisma.ExampleResultWhereInput[]
   id?: Prisma.IntFilter<"ExampleResult"> | number
   testResultId?: Prisma.IntFilter<"ExampleResult"> | number
-  testExampleId?: Prisma.IntFilter<"ExampleResult"> | number
   answer?: Prisma.StringNullableFilter<"ExampleResult"> | string | null
+  testExampleId?: Prisma.IntFilter<"ExampleResult"> | number
   testExample?: Prisma.XOR<Prisma.TestExampleScalarRelationFilter, Prisma.TestExampleWhereInput>
   testResult?: Prisma.XOR<Prisma.TestResultScalarRelationFilter, Prisma.TestResultWhereInput>
 }
@@ -223,8 +223,8 @@ export type ExampleResultWhereInput = {
 export type ExampleResultOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   testResultId?: Prisma.SortOrder
-  testExampleId?: Prisma.SortOrder
   answer?: Prisma.SortOrderInput | Prisma.SortOrder
+  testExampleId?: Prisma.SortOrder
   testExample?: Prisma.TestExampleOrderByWithRelationInput
   testResult?: Prisma.TestResultOrderByWithRelationInput
 }
@@ -236,8 +236,8 @@ export type ExampleResultWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ExampleResultWhereInput[]
   NOT?: Prisma.ExampleResultWhereInput | Prisma.ExampleResultWhereInput[]
   testResultId?: Prisma.IntFilter<"ExampleResult"> | number
-  testExampleId?: Prisma.IntFilter<"ExampleResult"> | number
   answer?: Prisma.StringNullableFilter<"ExampleResult"> | string | null
+  testExampleId?: Prisma.IntFilter<"ExampleResult"> | number
   testExample?: Prisma.XOR<Prisma.TestExampleScalarRelationFilter, Prisma.TestExampleWhereInput>
   testResult?: Prisma.XOR<Prisma.TestResultScalarRelationFilter, Prisma.TestResultWhereInput>
 }, "id" | "testResultId_testExampleId">
@@ -245,8 +245,8 @@ export type ExampleResultWhereUniqueInput = Prisma.AtLeast<{
 export type ExampleResultOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   testResultId?: Prisma.SortOrder
-  testExampleId?: Prisma.SortOrder
   answer?: Prisma.SortOrderInput | Prisma.SortOrder
+  testExampleId?: Prisma.SortOrder
   _count?: Prisma.ExampleResultCountOrderByAggregateInput
   _avg?: Prisma.ExampleResultAvgOrderByAggregateInput
   _max?: Prisma.ExampleResultMaxOrderByAggregateInput
@@ -260,8 +260,8 @@ export type ExampleResultScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ExampleResultScalarWhereWithAggregatesInput | Prisma.ExampleResultScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"ExampleResult"> | number
   testResultId?: Prisma.IntWithAggregatesFilter<"ExampleResult"> | number
-  testExampleId?: Prisma.IntWithAggregatesFilter<"ExampleResult"> | number
   answer?: Prisma.StringNullableWithAggregatesFilter<"ExampleResult"> | string | null
+  testExampleId?: Prisma.IntWithAggregatesFilter<"ExampleResult"> | number
 }
 
 export type ExampleResultCreateInput = {
@@ -273,8 +273,8 @@ export type ExampleResultCreateInput = {
 export type ExampleResultUncheckedCreateInput = {
   id?: number
   testResultId: number
-  testExampleId: number
   answer?: string | null
+  testExampleId: number
 }
 
 export type ExampleResultUpdateInput = {
@@ -286,15 +286,15 @@ export type ExampleResultUpdateInput = {
 export type ExampleResultUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   testResultId?: Prisma.IntFieldUpdateOperationsInput | number
-  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ExampleResultCreateManyInput = {
   id?: number
   testResultId: number
-  testExampleId: number
   answer?: string | null
+  testExampleId: number
 }
 
 export type ExampleResultUpdateManyMutationInput = {
@@ -304,8 +304,8 @@ export type ExampleResultUpdateManyMutationInput = {
 export type ExampleResultUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   testResultId?: Prisma.IntFieldUpdateOperationsInput | number
-  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ExampleResultListRelationFilter = {
@@ -326,8 +326,8 @@ export type ExampleResultTestResultIdTestExampleIdCompoundUniqueInput = {
 export type ExampleResultCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   testResultId?: Prisma.SortOrder
-  testExampleId?: Prisma.SortOrder
   answer?: Prisma.SortOrder
+  testExampleId?: Prisma.SortOrder
 }
 
 export type ExampleResultAvgOrderByAggregateInput = {
@@ -339,15 +339,15 @@ export type ExampleResultAvgOrderByAggregateInput = {
 export type ExampleResultMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   testResultId?: Prisma.SortOrder
-  testExampleId?: Prisma.SortOrder
   answer?: Prisma.SortOrder
+  testExampleId?: Prisma.SortOrder
 }
 
 export type ExampleResultMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   testResultId?: Prisma.SortOrder
-  testExampleId?: Prisma.SortOrder
   answer?: Prisma.SortOrder
+  testExampleId?: Prisma.SortOrder
 }
 
 export type ExampleResultSumOrderByAggregateInput = {
@@ -487,8 +487,8 @@ export type ExampleResultScalarWhereInput = {
   NOT?: Prisma.ExampleResultScalarWhereInput | Prisma.ExampleResultScalarWhereInput[]
   id?: Prisma.IntFilter<"ExampleResult"> | number
   testResultId?: Prisma.IntFilter<"ExampleResult"> | number
-  testExampleId?: Prisma.IntFilter<"ExampleResult"> | number
   answer?: Prisma.StringNullableFilter<"ExampleResult"> | string | null
+  testExampleId?: Prisma.IntFilter<"ExampleResult"> | number
 }
 
 export type ExampleResultCreateWithoutTestResultInput = {
@@ -498,8 +498,8 @@ export type ExampleResultCreateWithoutTestResultInput = {
 
 export type ExampleResultUncheckedCreateWithoutTestResultInput = {
   id?: number
-  testExampleId: number
   answer?: string | null
+  testExampleId: number
 }
 
 export type ExampleResultCreateOrConnectWithoutTestResultInput = {
@@ -553,8 +553,8 @@ export type ExampleResultUncheckedUpdateManyWithoutTestExampleInput = {
 
 export type ExampleResultCreateManyTestResultInput = {
   id?: number
-  testExampleId: number
   answer?: string | null
+  testExampleId: number
 }
 
 export type ExampleResultUpdateWithoutTestResultInput = {
@@ -564,14 +564,14 @@ export type ExampleResultUpdateWithoutTestResultInput = {
 
 export type ExampleResultUncheckedUpdateWithoutTestResultInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type ExampleResultUncheckedUpdateManyWithoutTestResultInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  testExampleId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 
@@ -579,8 +579,8 @@ export type ExampleResultUncheckedUpdateManyWithoutTestResultInput = {
 export type ExampleResultSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   testResultId?: boolean
-  testExampleId?: boolean
   answer?: boolean
+  testExampleId?: boolean
   testExample?: boolean | Prisma.TestExampleDefaultArgs<ExtArgs>
   testResult?: boolean | Prisma.TestResultDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["exampleResult"]>
@@ -588,8 +588,8 @@ export type ExampleResultSelect<ExtArgs extends runtime.Types.Extensions.Interna
 export type ExampleResultSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   testResultId?: boolean
-  testExampleId?: boolean
   answer?: boolean
+  testExampleId?: boolean
   testExample?: boolean | Prisma.TestExampleDefaultArgs<ExtArgs>
   testResult?: boolean | Prisma.TestResultDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["exampleResult"]>
@@ -597,8 +597,8 @@ export type ExampleResultSelectCreateManyAndReturn<ExtArgs extends runtime.Types
 export type ExampleResultSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   testResultId?: boolean
-  testExampleId?: boolean
   answer?: boolean
+  testExampleId?: boolean
   testExample?: boolean | Prisma.TestExampleDefaultArgs<ExtArgs>
   testResult?: boolean | Prisma.TestResultDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["exampleResult"]>
@@ -606,11 +606,11 @@ export type ExampleResultSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
 export type ExampleResultSelectScalar = {
   id?: boolean
   testResultId?: boolean
-  testExampleId?: boolean
   answer?: boolean
+  testExampleId?: boolean
 }
 
-export type ExampleResultOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "testResultId" | "testExampleId" | "answer", ExtArgs["result"]["exampleResult"]>
+export type ExampleResultOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "testResultId" | "answer" | "testExampleId", ExtArgs["result"]["exampleResult"]>
 export type ExampleResultInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   testExample?: boolean | Prisma.TestExampleDefaultArgs<ExtArgs>
   testResult?: boolean | Prisma.TestResultDefaultArgs<ExtArgs>
@@ -633,8 +633,8 @@ export type $ExampleResultPayload<ExtArgs extends runtime.Types.Extensions.Inter
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     testResultId: number
-    testExampleId: number
     answer: string | null
+    testExampleId: number
   }, ExtArgs["result"]["exampleResult"]>
   composites: {}
 }
@@ -1062,8 +1062,8 @@ export interface Prisma__ExampleResultClient<T, Null = never, ExtArgs extends ru
 export interface ExampleResultFieldRefs {
   readonly id: Prisma.FieldRef<"ExampleResult", 'Int'>
   readonly testResultId: Prisma.FieldRef<"ExampleResult", 'Int'>
-  readonly testExampleId: Prisma.FieldRef<"ExampleResult", 'Int'>
   readonly answer: Prisma.FieldRef<"ExampleResult", 'String'>
+  readonly testExampleId: Prisma.FieldRef<"ExampleResult", 'Int'>
 }
     
 

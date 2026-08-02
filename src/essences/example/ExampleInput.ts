@@ -9,7 +9,6 @@ export default class ExampleInput implements IExampleInput {
     public readonly answer: string
 
     constructor( formData: FormData ) {
-        console.log(Array.from(formData.entries()));
         this.description = formData.get('description') as string
         this.solution = formData.get('solution') as string
         const tagString = formData.get('tags') as string

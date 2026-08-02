@@ -1,8 +1,8 @@
 import { mkdir, readFile, rm, writeFile } from "fs/promises"
 import path from "path"
-import type { UploadFilesParams } from "./interfaces"
+import type { UploadFilesParams, ImageDataSource } from "./interfaces"
 
-export default class ImageFS {
+export default class ImageFS implements ImageDataSource {
 
     private readonly dirPath: string
 

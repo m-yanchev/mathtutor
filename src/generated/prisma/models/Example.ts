@@ -37,22 +37,22 @@ export type ExampleSumAggregateOutputType = {
 export type ExampleMinAggregateOutputType = {
   id: number | null
   description: string | null
-  solution: string | null
   answer: string | null
+  solution: string | null
 }
 
 export type ExampleMaxAggregateOutputType = {
   id: number | null
   description: string | null
-  solution: string | null
   answer: string | null
+  solution: string | null
 }
 
 export type ExampleCountAggregateOutputType = {
   id: number
   description: number
-  solution: number
   answer: number
+  solution: number
   _all: number
 }
 
@@ -68,22 +68,22 @@ export type ExampleSumAggregateInputType = {
 export type ExampleMinAggregateInputType = {
   id?: true
   description?: true
-  solution?: true
   answer?: true
+  solution?: true
 }
 
 export type ExampleMaxAggregateInputType = {
   id?: true
   description?: true
-  solution?: true
   answer?: true
+  solution?: true
 }
 
 export type ExampleCountAggregateInputType = {
   id?: true
   description?: true
-  solution?: true
   answer?: true
+  solution?: true
   _all?: true
 }
 
@@ -176,8 +176,8 @@ export type ExampleGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 export type ExampleGroupByOutputType = {
   id: number
   description: string
-  solution: string | null
   answer: string | null
+  solution: string | null
   _count: ExampleCountAggregateOutputType | null
   _avg: ExampleAvgAggregateOutputType | null
   _sum: ExampleSumAggregateOutputType | null
@@ -206,8 +206,8 @@ export type ExampleWhereInput = {
   NOT?: Prisma.ExampleWhereInput | Prisma.ExampleWhereInput[]
   id?: Prisma.IntFilter<"Example"> | number
   description?: Prisma.StringFilter<"Example"> | string
-  solution?: Prisma.StringNullableFilter<"Example"> | string | null
   answer?: Prisma.StringNullableFilter<"Example"> | string | null
+  solution?: Prisma.StringNullableFilter<"Example"> | string | null
   testRelations?: Prisma.TestExampleListRelationFilter
   tags?: Prisma.TagListRelationFilter
 }
@@ -215,8 +215,8 @@ export type ExampleWhereInput = {
 export type ExampleOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  solution?: Prisma.SortOrderInput | Prisma.SortOrder
   answer?: Prisma.SortOrderInput | Prisma.SortOrder
+  solution?: Prisma.SortOrderInput | Prisma.SortOrder
   testRelations?: Prisma.TestExampleOrderByRelationAggregateInput
   tags?: Prisma.TagOrderByRelationAggregateInput
 }
@@ -227,8 +227,8 @@ export type ExampleWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ExampleWhereInput | Prisma.ExampleWhereInput[]
   OR?: Prisma.ExampleWhereInput[]
   NOT?: Prisma.ExampleWhereInput | Prisma.ExampleWhereInput[]
-  solution?: Prisma.StringNullableFilter<"Example"> | string | null
   answer?: Prisma.StringNullableFilter<"Example"> | string | null
+  solution?: Prisma.StringNullableFilter<"Example"> | string | null
   testRelations?: Prisma.TestExampleListRelationFilter
   tags?: Prisma.TagListRelationFilter
 }, "id" | "description">
@@ -236,8 +236,8 @@ export type ExampleWhereUniqueInput = Prisma.AtLeast<{
 export type ExampleOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  solution?: Prisma.SortOrderInput | Prisma.SortOrder
   answer?: Prisma.SortOrderInput | Prisma.SortOrder
+  solution?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.ExampleCountOrderByAggregateInput
   _avg?: Prisma.ExampleAvgOrderByAggregateInput
   _max?: Prisma.ExampleMaxOrderByAggregateInput
@@ -251,14 +251,14 @@ export type ExampleScalarWhereWithAggregatesInput = {
   NOT?: Prisma.ExampleScalarWhereWithAggregatesInput | Prisma.ExampleScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Example"> | number
   description?: Prisma.StringWithAggregatesFilter<"Example"> | string
-  solution?: Prisma.StringNullableWithAggregatesFilter<"Example"> | string | null
   answer?: Prisma.StringNullableWithAggregatesFilter<"Example"> | string | null
+  solution?: Prisma.StringNullableWithAggregatesFilter<"Example"> | string | null
 }
 
 export type ExampleCreateInput = {
   description: string
-  solution?: string | null
   answer?: string | null
+  solution?: string | null
   testRelations?: Prisma.TestExampleCreateNestedManyWithoutExampleInput
   tags?: Prisma.TagCreateNestedManyWithoutExamplesInput
 }
@@ -266,16 +266,16 @@ export type ExampleCreateInput = {
 export type ExampleUncheckedCreateInput = {
   id?: number
   description: string
-  solution?: string | null
   answer?: string | null
+  solution?: string | null
   testRelations?: Prisma.TestExampleUncheckedCreateNestedManyWithoutExampleInput
   tags?: Prisma.TagUncheckedCreateNestedManyWithoutExamplesInput
 }
 
 export type ExampleUpdateInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testRelations?: Prisma.TestExampleUpdateManyWithoutExampleNestedInput
   tags?: Prisma.TagUpdateManyWithoutExamplesNestedInput
 }
@@ -283,8 +283,8 @@ export type ExampleUpdateInput = {
 export type ExampleUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testRelations?: Prisma.TestExampleUncheckedUpdateManyWithoutExampleNestedInput
   tags?: Prisma.TagUncheckedUpdateManyWithoutExamplesNestedInput
 }
@@ -292,21 +292,21 @@ export type ExampleUncheckedUpdateInput = {
 export type ExampleCreateManyInput = {
   id?: number
   description: string
-  solution?: string | null
   answer?: string | null
+  solution?: string | null
 }
 
 export type ExampleUpdateManyMutationInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ExampleUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type ExampleScalarRelationFilter = {
@@ -317,8 +317,8 @@ export type ExampleScalarRelationFilter = {
 export type ExampleCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
   answer?: Prisma.SortOrder
+  solution?: Prisma.SortOrder
 }
 
 export type ExampleAvgOrderByAggregateInput = {
@@ -328,15 +328,15 @@ export type ExampleAvgOrderByAggregateInput = {
 export type ExampleMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
   answer?: Prisma.SortOrder
+  solution?: Prisma.SortOrder
 }
 
 export type ExampleMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   description?: Prisma.SortOrder
-  solution?: Prisma.SortOrder
   answer?: Prisma.SortOrder
+  solution?: Prisma.SortOrder
 }
 
 export type ExampleSumOrderByAggregateInput = {
@@ -407,16 +407,16 @@ export type ExampleUncheckedUpdateManyWithoutTagsNestedInput = {
 
 export type ExampleCreateWithoutTestRelationsInput = {
   description: string
-  solution?: string | null
   answer?: string | null
+  solution?: string | null
   tags?: Prisma.TagCreateNestedManyWithoutExamplesInput
 }
 
 export type ExampleUncheckedCreateWithoutTestRelationsInput = {
   id?: number
   description: string
-  solution?: string | null
   answer?: string | null
+  solution?: string | null
   tags?: Prisma.TagUncheckedCreateNestedManyWithoutExamplesInput
 }
 
@@ -438,31 +438,31 @@ export type ExampleUpdateToOneWithWhereWithoutTestRelationsInput = {
 
 export type ExampleUpdateWithoutTestRelationsInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.TagUpdateManyWithoutExamplesNestedInput
 }
 
 export type ExampleUncheckedUpdateWithoutTestRelationsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   tags?: Prisma.TagUncheckedUpdateManyWithoutExamplesNestedInput
 }
 
 export type ExampleCreateWithoutTagsInput = {
   description: string
-  solution?: string | null
   answer?: string | null
+  solution?: string | null
   testRelations?: Prisma.TestExampleCreateNestedManyWithoutExampleInput
 }
 
 export type ExampleUncheckedCreateWithoutTagsInput = {
   id?: number
   description: string
-  solution?: string | null
   answer?: string | null
+  solution?: string | null
   testRelations?: Prisma.TestExampleUncheckedCreateNestedManyWithoutExampleInput
 }
 
@@ -493,30 +493,30 @@ export type ExampleScalarWhereInput = {
   NOT?: Prisma.ExampleScalarWhereInput | Prisma.ExampleScalarWhereInput[]
   id?: Prisma.IntFilter<"Example"> | number
   description?: Prisma.StringFilter<"Example"> | string
-  solution?: Prisma.StringNullableFilter<"Example"> | string | null
   answer?: Prisma.StringNullableFilter<"Example"> | string | null
+  solution?: Prisma.StringNullableFilter<"Example"> | string | null
 }
 
 export type ExampleUpdateWithoutTagsInput = {
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testRelations?: Prisma.TestExampleUpdateManyWithoutExampleNestedInput
 }
 
 export type ExampleUncheckedUpdateWithoutTagsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   testRelations?: Prisma.TestExampleUncheckedUpdateManyWithoutExampleNestedInput
 }
 
 export type ExampleUncheckedUpdateManyWithoutTagsInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   description?: Prisma.StringFieldUpdateOperationsInput | string
-  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   answer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  solution?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -562,8 +562,8 @@ export type ExampleCountOutputTypeCountTagsArgs<ExtArgs extends runtime.Types.Ex
 export type ExampleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   description?: boolean
-  solution?: boolean
   answer?: boolean
+  solution?: boolean
   testRelations?: boolean | Prisma.Example$testRelationsArgs<ExtArgs>
   tags?: boolean | Prisma.Example$tagsArgs<ExtArgs>
   _count?: boolean | Prisma.ExampleCountOutputTypeDefaultArgs<ExtArgs>
@@ -572,25 +572,25 @@ export type ExampleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 export type ExampleSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   description?: boolean
-  solution?: boolean
   answer?: boolean
+  solution?: boolean
 }, ExtArgs["result"]["example"]>
 
 export type ExampleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   description?: boolean
-  solution?: boolean
   answer?: boolean
+  solution?: boolean
 }, ExtArgs["result"]["example"]>
 
 export type ExampleSelectScalar = {
   id?: boolean
   description?: boolean
-  solution?: boolean
   answer?: boolean
+  solution?: boolean
 }
 
-export type ExampleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "description" | "solution" | "answer", ExtArgs["result"]["example"]>
+export type ExampleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "description" | "answer" | "solution", ExtArgs["result"]["example"]>
 export type ExampleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   testRelations?: boolean | Prisma.Example$testRelationsArgs<ExtArgs>
   tags?: boolean | Prisma.Example$tagsArgs<ExtArgs>
@@ -608,8 +608,8 @@ export type $ExamplePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     description: string
-    solution: string | null
     answer: string | null
+    solution: string | null
   }, ExtArgs["result"]["example"]>
   composites: {}
 }
@@ -1037,8 +1037,8 @@ export interface Prisma__ExampleClient<T, Null = never, ExtArgs extends runtime.
 export interface ExampleFieldRefs {
   readonly id: Prisma.FieldRef<"Example", 'Int'>
   readonly description: Prisma.FieldRef<"Example", 'String'>
-  readonly solution: Prisma.FieldRef<"Example", 'String'>
   readonly answer: Prisma.FieldRef<"Example", 'String'>
+  readonly solution: Prisma.FieldRef<"Example", 'String'>
 }
     
 

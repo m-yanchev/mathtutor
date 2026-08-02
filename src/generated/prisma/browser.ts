@@ -62,3 +62,8 @@ export type Tag = Prisma.TagModel
  * 
  */
 export type TeoreticalMaterial = Prisma.TeoreticalMaterialModel
+/**
+ * Model Lesson
+ * 
+ */
+export type Lesson = Prisma.LessonModel

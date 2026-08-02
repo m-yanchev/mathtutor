@@ -200,12 +200,14 @@ export type TeoreticalMaterialWhereInput = {
   id?: Prisma.IntFilter<"TeoreticalMaterial"> | number
   title?: Prisma.StringFilter<"TeoreticalMaterial"> | string
   content?: Prisma.StringFilter<"TeoreticalMaterial"> | string
+  lessons?: Prisma.LessonListRelationFilter
 }
 
 export type TeoreticalMaterialOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
+  lessons?: Prisma.LessonOrderByRelationAggregateInput
 }
 
 export type TeoreticalMaterialWhereUniqueInput = Prisma.AtLeast<{
@@ -215,6 +217,7 @@ export type TeoreticalMaterialWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.TeoreticalMaterialWhereInput[]
   NOT?: Prisma.TeoreticalMaterialWhereInput | Prisma.TeoreticalMaterialWhereInput[]
   content?: Prisma.StringFilter<"TeoreticalMaterial"> | string
+  lessons?: Prisma.LessonListRelationFilter
 }, "id" | "title">
 
 export type TeoreticalMaterialOrderByWithAggregationInput = {
@@ -240,23 +243,27 @@ export type TeoreticalMaterialScalarWhereWithAggregatesInput = {
 export type TeoreticalMaterialCreateInput = {
   title: string
   content: string
+  lessons?: Prisma.LessonCreateNestedManyWithoutTeoreticalMaterialInput
 }
 
 export type TeoreticalMaterialUncheckedCreateInput = {
   id?: number
   title: string
   content: string
+  lessons?: Prisma.LessonUncheckedCreateNestedManyWithoutTeoreticalMaterialInput
 }
 
 export type TeoreticalMaterialUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  lessons?: Prisma.LessonUpdateManyWithoutTeoreticalMaterialNestedInput
 }
 
 export type TeoreticalMaterialUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
+  lessons?: Prisma.LessonUncheckedUpdateManyWithoutTeoreticalMaterialNestedInput
 }
 
 export type TeoreticalMaterialCreateManyInput = {
@@ -302,12 +309,102 @@ export type TeoreticalMaterialSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
 }
 
+export type TeoreticalMaterialNullableScalarRelationFilter = {
+  is?: Prisma.TeoreticalMaterialWhereInput | null
+  isNot?: Prisma.TeoreticalMaterialWhereInput | null
+}
+
+export type TeoreticalMaterialCreateNestedOneWithoutLessonsInput = {
+  create?: Prisma.XOR<Prisma.TeoreticalMaterialCreateWithoutLessonsInput, Prisma.TeoreticalMaterialUncheckedCreateWithoutLessonsInput>
+  connectOrCreate?: Prisma.TeoreticalMaterialCreateOrConnectWithoutLessonsInput
+  connect?: Prisma.TeoreticalMaterialWhereUniqueInput
+}
+
+export type TeoreticalMaterialUpdateOneWithoutLessonsNestedInput = {
+  create?: Prisma.XOR<Prisma.TeoreticalMaterialCreateWithoutLessonsInput, Prisma.TeoreticalMaterialUncheckedCreateWithoutLessonsInput>
+  connectOrCreate?: Prisma.TeoreticalMaterialCreateOrConnectWithoutLessonsInput
+  upsert?: Prisma.TeoreticalMaterialUpsertWithoutLessonsInput
+  disconnect?: Prisma.TeoreticalMaterialWhereInput | boolean
+  delete?: Prisma.TeoreticalMaterialWhereInput | boolean
+  connect?: Prisma.TeoreticalMaterialWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.TeoreticalMaterialUpdateToOneWithWhereWithoutLessonsInput, Prisma.TeoreticalMaterialUpdateWithoutLessonsInput>, Prisma.TeoreticalMaterialUncheckedUpdateWithoutLessonsInput>
+}
+
+export type TeoreticalMaterialCreateWithoutLessonsInput = {
+  title: string
+  content: string
+}
+
+export type TeoreticalMaterialUncheckedCreateWithoutLessonsInput = {
+  id?: number
+  title: string
+  content: string
+}
+
+export type TeoreticalMaterialCreateOrConnectWithoutLessonsInput = {
+  where: Prisma.TeoreticalMaterialWhereUniqueInput
+  create: Prisma.XOR<Prisma.TeoreticalMaterialCreateWithoutLessonsInput, Prisma.TeoreticalMaterialUncheckedCreateWithoutLessonsInput>
+}
+
+export type TeoreticalMaterialUpsertWithoutLessonsInput = {
+  update: Prisma.XOR<Prisma.TeoreticalMaterialUpdateWithoutLessonsInput, Prisma.TeoreticalMaterialUncheckedUpdateWithoutLessonsInput>
+  create: Prisma.XOR<Prisma.TeoreticalMaterialCreateWithoutLessonsInput, Prisma.TeoreticalMaterialUncheckedCreateWithoutLessonsInput>
+  where?: Prisma.TeoreticalMaterialWhereInput
+}
+
+export type TeoreticalMaterialUpdateToOneWithWhereWithoutLessonsInput = {
+  where?: Prisma.TeoreticalMaterialWhereInput
+  data: Prisma.XOR<Prisma.TeoreticalMaterialUpdateWithoutLessonsInput, Prisma.TeoreticalMaterialUncheckedUpdateWithoutLessonsInput>
+}
+
+export type TeoreticalMaterialUpdateWithoutLessonsInput = {
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+export type TeoreticalMaterialUncheckedUpdateWithoutLessonsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+}
+
+
+/**
+ * Count Type TeoreticalMaterialCountOutputType
+ */
+
+export type TeoreticalMaterialCountOutputType = {
+  lessons: number
+}
+
+export type TeoreticalMaterialCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  lessons?: boolean | TeoreticalMaterialCountOutputTypeCountLessonsArgs
+}
+
+/**
+ * TeoreticalMaterialCountOutputType without action
+ */
+export type TeoreticalMaterialCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TeoreticalMaterialCountOutputType
+   */
+  select?: Prisma.TeoreticalMaterialCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * TeoreticalMaterialCountOutputType without action
+ */
+export type TeoreticalMaterialCountOutputTypeCountLessonsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.LessonWhereInput
+}
 
 
 export type TeoreticalMaterialSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   title?: boolean
   content?: boolean
+  lessons?: boolean | Prisma.TeoreticalMaterial$lessonsArgs<ExtArgs>
+  _count?: boolean | Prisma.TeoreticalMaterialCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["teoreticalMaterial"]>
 
 export type TeoreticalMaterialSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -329,10 +426,18 @@ export type TeoreticalMaterialSelectScalar = {
 }
 
 export type TeoreticalMaterialOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "content", ExtArgs["result"]["teoreticalMaterial"]>
+export type TeoreticalMaterialInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  lessons?: boolean | Prisma.TeoreticalMaterial$lessonsArgs<ExtArgs>
+  _count?: boolean | Prisma.TeoreticalMaterialCountOutputTypeDefaultArgs<ExtArgs>
+}
+export type TeoreticalMaterialIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type TeoreticalMaterialIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $TeoreticalMaterialPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "TeoreticalMaterial"
-  objects: {}
+  objects: {
+    lessons: Prisma.$LessonPayload<ExtArgs>[]
+  }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     title: string
@@ -731,6 +836,7 @@ readonly fields: TeoreticalMaterialFieldRefs;
  */
 export interface Prisma__TeoreticalMaterialClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
+  lessons<T extends Prisma.TeoreticalMaterial$lessonsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.TeoreticalMaterial$lessonsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$LessonPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -780,6 +886,10 @@ export type TeoreticalMaterialFindUniqueArgs<ExtArgs extends runtime.Types.Exten
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
+  /**
    * Filter, which TeoreticalMaterial to fetch.
    */
   where: Prisma.TeoreticalMaterialWhereUniqueInput
@@ -798,6 +908,10 @@ export type TeoreticalMaterialFindUniqueOrThrowArgs<ExtArgs extends runtime.Type
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
+  /**
    * Filter, which TeoreticalMaterial to fetch.
    */
   where: Prisma.TeoreticalMaterialWhereUniqueInput
@@ -815,6 +929,10 @@ export type TeoreticalMaterialFindFirstArgs<ExtArgs extends runtime.Types.Extens
    * Omit specific fields from the TeoreticalMaterial
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
   /**
    * Filter, which TeoreticalMaterial to fetch.
    */
@@ -864,6 +982,10 @@ export type TeoreticalMaterialFindFirstOrThrowArgs<ExtArgs extends runtime.Types
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
+  /**
    * Filter, which TeoreticalMaterial to fetch.
    */
   where?: Prisma.TeoreticalMaterialWhereInput
@@ -911,6 +1033,10 @@ export type TeoreticalMaterialFindManyArgs<ExtArgs extends runtime.Types.Extensi
    * Omit specific fields from the TeoreticalMaterial
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
   /**
    * Filter, which TeoreticalMaterials to fetch.
    */
@@ -960,6 +1086,10 @@ export type TeoreticalMaterialCreateArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
+  /**
    * The data needed to create a TeoreticalMaterial.
    */
   data: Prisma.XOR<Prisma.TeoreticalMaterialCreateInput, Prisma.TeoreticalMaterialUncheckedCreateInput>
@@ -1007,6 +1137,10 @@ export type TeoreticalMaterialUpdateArgs<ExtArgs extends runtime.Types.Extension
    * Omit specific fields from the TeoreticalMaterial
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
   /**
    * The data needed to update a TeoreticalMaterial.
    */
@@ -1074,6 +1208,10 @@ export type TeoreticalMaterialUpsertArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
+  /**
    * The filter to search for the TeoreticalMaterial to update in case it exists.
    */
   where: Prisma.TeoreticalMaterialWhereUniqueInput
@@ -1100,6 +1238,10 @@ export type TeoreticalMaterialDeleteArgs<ExtArgs extends runtime.Types.Extension
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
+  /**
    * Filter which TeoreticalMaterial to delete.
    */
   where: Prisma.TeoreticalMaterialWhereUniqueInput
@@ -1120,6 +1262,30 @@ export type TeoreticalMaterialDeleteManyArgs<ExtArgs extends runtime.Types.Exten
 }
 
 /**
+ * TeoreticalMaterial.lessons
+ */
+export type TeoreticalMaterial$lessonsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Lesson
+   */
+  select?: Prisma.LessonSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Lesson
+   */
+  omit?: Prisma.LessonOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LessonInclude<ExtArgs> | null
+  where?: Prisma.LessonWhereInput
+  orderBy?: Prisma.LessonOrderByWithRelationInput | Prisma.LessonOrderByWithRelationInput[]
+  cursor?: Prisma.LessonWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.LessonScalarFieldEnum | Prisma.LessonScalarFieldEnum[]
+}
+
+/**
  * TeoreticalMaterial without action
  */
 export type TeoreticalMaterialDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1131,4 +1297,8 @@ export type TeoreticalMaterialDefaultArgs<ExtArgs extends runtime.Types.Extensio
    * Omit specific fields from the TeoreticalMaterial
    */
   omit?: Prisma.TeoreticalMaterialOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TeoreticalMaterialInclude<ExtArgs> | null
 }
